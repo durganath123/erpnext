@@ -1,0 +1,75 @@
+{% extends "templates/web.html" %}
+
+{% block title %} {{ _("Default Items")}} {% endblock %}
+
+{% from "erpnext/templates/includes/order/order_macros.html" import item_name_and_description %}
+
+{% block breadcrumbs %}
+	{% include "templates/includes/breadcrumbs.html" %}
+{% endblock %}
+
+{% block header %}<h2>{{ _("Default Items") }}</h2>{% endblock %}
+
+{% block script%}
+<script>{% include "templates/includes/product_list.js" %}</script>
+<script>{% include "templates/includes/zoom.js" %}</script>
+<script>{% include "www/default_items.js" %}</script>
+<script type="text/javascript" src="/assets/js/dialog.min.js"></script>
+<script type="text/javascript" src="/assets/js/control.min.js"></script>
+<script type="text/javascript" src="/assets/js/moment-bundle.min.js"></script>
+<script type="text/javascript" src="/assets/js/web-extended.min.js"></script>
+{% endblock %}
+
+{% block style %}
+<style>
+.form-control:focus{
+    outline: 0 !important;
+    box-shadow: none;
+}
+.form-section{
+	margin: 0;
+	padding: 0;
+}
+.default-item-image{
+	width: 100% !important;
+	height: 50px !important;
+	padding: 0 !important;
+	background-size: contain !important;
+    cursor: pointer;
+}
+</style>
+<style>
+{% include "templates/includes/zoom.css" %}
+</style>
+{% endblock %}
+
+{% block header_actions %}
+<button class="btn btn-primary btn-sm btn-add-items" type="button">
+    {{ _("Add Items") }}
+</button>
+{% endblock %}
+
+{% block page_content %}
+<div class="table-responsive margin-top">
+    <table class="table table-bordered tabel-condensed">
+        <thead>
+            <tr style="color: #8d99a6;font-size: 12px;background-color: #f7fafc;">
+                <th scope="col" class="text-center">{{ _("Image") }}</th>
+                <th scope="col" class="">{{ _("Item Name") }}</th>
+                <th scope="col" class="text-center">{{ _("UOM") }}</th>
+                <th scope="col" class="text-right">{{ _("Per Unit") }}</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="default-items" style="font-size: 12px !important;">
+            {% for item in default_items %}
+            {% include "erpnext/www/default-item-row.html" %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<button class="btn btn-primary btn-sm btn-add-items" type="button" style="float: right; margin-bottom: 15px;">
+    {{ _("Add Items") }}
+</button>
+{% endblock %}

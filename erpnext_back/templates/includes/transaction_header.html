@@ -1,0 +1,51 @@
+<div class="row margin-top bold">
+    {% if  doctype == 'Quotation' %}
+        <div class="col-sm-4 ">
+            {{ _("P.O #") }}
+        </div>
+        <div class="col-sm-2">
+            {{ _("Order Date") }}
+        </div>
+        <div class="col-sm-2">
+            {{ _("Delivery Date") }}
+        </div>
+        <div class="col-sm-2 text-right">
+            {{ _("Qty Ordered") }}
+        </div>
+        <div class="col-sm-2 text-right">
+            {{ _("Total Amount") }}
+        </div>
+    {% elif doctype == 'Sales Order' %}
+        <div class="col-sm-4 ">
+            {{ _("S.O #") }}
+        </div>
+        <div class="col-sm-2 font-size">
+            {{ _("Order Date") }}
+        </div>
+        <div class="col-sm-2">
+            {{ _("Delivery Date") }}
+        </div>
+        <div class="col-sm-2 text-right">
+            {{ _("Total Qty") }}
+        </div>
+        <div class="col-sm-2 text-right">
+            {{ _("Total Amount") }}
+        </div>
+    {% else %}
+        <div class="col-sm-2 ">
+            {{ _("Name") }}
+        </div>
+        <div class="col-sm-3 font-size">
+            {{ _("Date") }}
+        </div>
+        <div class="col-sm-3">
+            {{ _("Delivery Date") }}
+        </div>
+        <div class="col-sm-2 text-right">
+            {{ _("Total Qty") }}
+        </div>
+        <div class="col-sm-2 text-right">
+            {{ _("Total Amount") }}
+        </div>
+    {% endif %}
+</div>

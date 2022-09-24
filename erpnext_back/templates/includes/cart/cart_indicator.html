@@ -1,0 +1,7 @@
+{% if doc.is_new() %}
+<span class="indicator blue">New Order</span>
+{% else %}
+<a href="/purchase-orders/{{ doc.name }}" class="margin-top indicator-link" data-quotation-name="{{ doc.name or '' }}">
+    <span class="indicator {{ doc.indicator_color }}">{{ _(doc.get('indicator_title')) }} ({{ doc.name }})</span>
+</a>
+{% endif %}

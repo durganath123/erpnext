@@ -1,0 +1,234 @@
+{
+ "creation": "2019-05-29 00:53:01.749860",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "dt",
+  "dn",
+  "customer",
+  "item_code",
+  "batch_no",
+  "column_break_6",
+  "qty",
+  "allocated_qty",
+  "back_order_qty",
+  "difference",
+  "conversion_factor",
+  "alt_uom_size",
+  "alt_uom_size_std",
+  "back_order_date",
+  "section_break_15",
+  "valuation_rate",
+  "cogs_per_unit",
+  "cogs",
+  "column_break_21",
+  "base_net_amount",
+  "gross_profit",
+  "gross_profit_per_unit",
+  "per_gross_profit",
+  "section_break_26",
+  "so_detail",
+  "doc_status"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dt",
+   "fieldtype": "Link",
+   "label": "Document Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "dn",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Document",
+   "options": "dt",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "allocated_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Allocated"
+  },
+  {
+   "columns": 1,
+   "fieldname": "back_order_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Back Qty"
+  },
+  {
+   "columns": 1,
+   "fieldname": "difference",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Difference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversion_factor",
+   "fieldtype": "Float",
+   "label": "Conversion Factor",
+   "precision": "9",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "back_order_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Back Date"
+  },
+  {
+   "fieldname": "so_detail",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "SO Detail"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "label": "Batch No",
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "doc_status",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Docstatus",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "per_gross_profit",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Profit %",
+   "permlevel": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break",
+   "label": "Gross Profit"
+  },
+  {
+   "fieldname": "valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Valuation Rate",
+   "permlevel": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "alt_uom_size",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Per Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "alt_uom_size_std",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Per Unit (Standard)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cogs_per_unit",
+   "fieldtype": "Currency",
+   "label": "Cost / Unit",
+   "permlevel": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cogs",
+   "fieldtype": "Currency",
+   "label": "Cost",
+   "permlevel": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "base_net_amount",
+   "fieldtype": "Currency",
+   "label": "Revenue",
+   "permlevel": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "gross_profit",
+   "fieldtype": "Currency",
+   "label": "Gross Profit",
+   "permlevel": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "gross_profit_per_unit",
+   "fieldtype": "Currency",
+   "label": "Gross Profit / Unit",
+   "permlevel": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_26",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-09-14 16:12:55.924336",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Qty Adjust Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

@@ -1,0 +1,74 @@
+{
+ "creation": "2013-02-22 01:27:45",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "school_univ",
+  "qualification",
+  "level",
+  "year_of_passing",
+  "class_per",
+  "maj_opt_subj"
+ ],
+ "fields": [
+  {
+   "fieldname": "school_univ",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "School/University",
+   "oldfieldname": "school_univ",
+   "oldfieldtype": "Small Text"
+  },
+  {
+   "fieldname": "qualification",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Qualification",
+   "oldfieldname": "qualification",
+   "oldfieldtype": "Data",
+   "print_width": "100px",
+   "width": "100px"
+  },
+  {
+   "fieldname": "level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Level",
+   "oldfieldname": "level",
+   "oldfieldtype": "Select",
+   "options": "Graduate\nPost Graduate\nUnder Graduate"
+  },
+  {
+   "fieldname": "year_of_passing",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Year of Passing",
+   "oldfieldname": "year_of_passing",
+   "oldfieldtype": "Int"
+  },
+  {
+   "fieldname": "class_per",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Class / Percentage",
+   "oldfieldname": "class_per",
+   "oldfieldtype": "Data"
+  },
+  {
+   "fieldname": "maj_opt_subj",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Major/Optional Subjects",
+   "oldfieldname": "maj_opt_subj",
+   "oldfieldtype": "Text"
+  }
+ ],
+ "idx": 1,
+ "istable": 1,
+ "modified": "2020-06-04 06:59:13.726843",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Employee Education",
+ "owner": "Administrator",
+ "permissions": []
+}

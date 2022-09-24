@@ -1,0 +1,32 @@
+{
+ "autoname": "hash",
+ "creation": "2018-04-08 16:31:02.433252",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "approver"
+ ],
+ "fields": [
+  {
+   "fieldname": "approver",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Approver",
+   "options": "User",
+   "print_hide": 1,
+   "reqd": 1,
+   "width": "200"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:38.266002",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Department Approver",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

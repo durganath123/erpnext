@@ -1,0 +1,42 @@
+{
+ "creation": "2018-03-26 01:32:10.108450",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_invoice",
+  "redemption_date",
+  "redeemed_points"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sales Invoice"
+  },
+  {
+   "fieldname": "redemption_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Redemption Date"
+  },
+  {
+   "fieldname": "redeemed_points",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Redeemed Points"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:40.422243",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Loyalty Point Entry Redemption",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

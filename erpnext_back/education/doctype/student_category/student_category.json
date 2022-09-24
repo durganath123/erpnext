@@ -1,0 +1,41 @@
+{
+ "autoname": "field:category",
+ "creation": "2016-09-05 06:28:33.679415",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "category"
+ ],
+ "fields": [
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Category",
+   "reqd": 1
+  }
+ ],
+ "modified": "2020-06-04 06:58:50.729797",
+ "modified_by": "Administrator",
+ "module": "Education",
+ "name": "Student Category",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academics User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "restrict_to_domain": "Education",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

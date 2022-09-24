@@ -1,0 +1,25 @@
+<div class="table-responsive margin-top product-items-table">
+    {% for item_group in item_group_map.keys() %}
+    <table class="table table-bordered" data-table-index="{{ loop.index }}">
+        <thead>
+            <tr style="color: #8d99a6;font-size: 12px;background-color: #f7fafc;">
+                <th scope="col" class="text-center" colspan="8">{{ item_group }}</th>
+            </tr>
+            <tr style="color: #8d99a6;font-size: 12px;background-color: #f7fafc;">
+                <th scope="col" class="text-center" style="width: 10% !important;">{{ _("Image") }}</th>
+                <th scope="col" class="" style="width: 40% !important;">{{ _("Item Name") }}</th>
+                <th scope="col" class="text-center" style="width: 5% !important;">{{ _("Country") }}</th>
+                <th scope="col" class="text-center" style="width: 10% !important;">{{ _("Quantity") }}</th>
+                <th scope="col" class="text-center" style="width: 15% !important;">{{ _("UOM") }}</th>
+                <th scope="col" class="text-right" style="width: 10% !important;">{{ _("Per Unit") }}</th>
+                <th scope="col" class="text-right" style="width: 10% !important;">{{ _("Rate") }}</th>
+            </tr>
+        </thead>
+        <tbody class="product-items" style="font-size: 12px !important;">
+            {% for item in item_group_map.get(item_group) %}
+                {% include 'erpnext/www/product-list-row.html' %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+</div>

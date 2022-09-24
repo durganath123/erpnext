@@ -1,0 +1,38 @@
+{
+ "creation": "2018-01-08 00:16:42.762980",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "mapped_header",
+  "stmt_header"
+ ],
+ "fields": [
+  {
+   "fieldname": "mapped_header",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mapped Header",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "stmt_header",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bank Header",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:44.869923",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Bank Statement Settings Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,602 @@
+::placeholder {
+  color: #ABB7B7;
+  font-size: 11px;
+}
+.mso_notes {
+  font-size: 9px !important;
+}
+
+#salesTable .autocomplete { width:100%;}
+#salesTemplatetable .autocomplete { width:100%;}
+
+#myTable  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+
+th {
+  text-align: center !important;
+  padding: 5px 2px !important;
+  border: 1px solid !important;
+} 
+
+#myTable th,#myTable  td {
+    text-align: left;
+    padding: 1px;
+}
+#myTable tr:nth-child(3){  font-weight:bold !important;  text-align: center !important; padding:2px; }
+
+#myTable tr td{   border: 1px solid #d1d8dd !important;  text-align: center;}
+#myTable input { padding:8px; width:100%; min-width:120px; border:1px solid #d1d8dd; text-align: center; font-size:12pt;}
+#myTable textarea {  min-width:120px; border:1px solid #d1d8dd; }
+
+#qtyadjTable  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#qtyadjTable th,#qtyadjTable  td {
+    text-align: left;
+    padding: 4px;
+}
+#qtyadjTable tr td{   border: 1px solid #5e68a9 !important; }
+
+#qtyadjTable input { padding:8px; width:100%; min-width:120px; border:1px solid #d1d8dd; }
+#qtyadjTable textarea {  min-width:120px; border:1px solid #d1d8dd; }
+
+#qtyTable  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#qtyTable th,#qtyTable  td {
+    text-align: left;
+    padding: 4px;
+}
+#qtyTable tr td{   border: 1px solid #5e68a9 !important; }
+
+#qtyTable input { padding:8px; width:100%; min-width:120px; border:1px solid #d1d8dd; }
+#qtyTable textarea {  min-width:120px; border:1px solid #d1d8dd; }
+
+#qtyTable1  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#qtyTable1 th,#qtyTable1  td {
+    text-align: left;
+    padding: 8px;
+}
+#qtyTable1 tr td{   border: 1px solid #d1d8dd !important; }
+
+#qtyTable1 tr td{   border: 1px solid #d1d8dd !important; }
+#qtyTable1 input { padding:8px; width:100%; min-width:120px; border:1px solid #d1d8dd; }
+#qtyTable1 textarea {  min-width:120px; border:1px solid #d1d8dd; }
+
+
+#salesTable  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#salesTable th,#salesTable  td {
+    text-align: left;
+    padding: 0.5px;
+}
+
+#salesTable tr td{   border: 1px solid #d1d8dd !important; }
+#salesTable tr:nth-child(3){  font-weight:bold !important; padding:2px; }
+#salesTable tr:nth-child(3) td {
+    padding: 8px;
+    text-align: center;
+}
+#salesTable tr td:nth-child(1), #salesTable tr td:nth-child(2) {
+   //position: absolute;
+	//width:100px;
+}
+#salesTable input { padding:8px; width:100%; text-align:center; min-width:120px; border:1px solid #d1d8dd; font-size:12pt; }
+#salesTable textarea {  min-width:120px; border:1px solid #d1d8dd; }
+
+#salesTemplatetable  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#salesTemplatetable th,#salesTemplatetable  td {
+    text-align: left;
+    padding: 0.5px;
+}
+
+#salesTemplatetable tr td{   border: 1px solid #d1d8dd !important; }
+#salesTemplatetable tr:nth-child(3){  font-weight:bold !important; padding:2px; }
+#salesTemplatetable tr:nth-child(3) td {
+    padding: 8px;
+    text-align: center;
+}
+#salesTemplatetable tr td:nth-child(1), #salesTemplatetable tr td:nth-child(2) {
+   //position: absolute;
+	//width:100px;
+}
+#salesTemplatetable input { padding:8px; width:100%; text-align:center; min-width:120px; border:1px solid #d1d8dd; font-size:12pt; }
+#salesTemplatetable textarea {  min-width:120px; border:1px solid #d1d8dd; }
+#rTable  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#rTable th,#rTable  td {
+    text-align: left;
+    padding: 0.5px;
+}
+#rTable tr td{   border: 1px solid #d1d8dd !important; }
+
+#rTable tr td{   border: 1px solid #d1d8dd !important; }
+#rTable input { padding:8px; width:100%; min-width:120px; border:1px solid #d1d8dd; }
+#rTable textarea {  min-width:120px; border:1px solid #d1d8dd; }
+
+#myTable1  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#myTable1 th,#myTable1  td {
+    text-align: left;
+    padding: 0.5px;
+}
+#myTable1 tr td{   border: 1px solid #d1d8dd !important; }
+
+#myTable1 tr td{   border: 1px solid #d1d8dd !important; }
+#myTable1 input { padding:8px; width:100%; min-width:120px; border:1px solid #d1d8dd; }
+#myTable1 textarea {  min-width:120px; border:1px solid #d1d8dd; }
+
+#myTable2  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#myTable2 th,#myTable2  td {
+    text-align: left;
+    padding: 0.5px;
+}
+#myTable2 tr td{   border: 1px solid #d1d8dd !important; }
+
+#myTable2 tr td{   border: 1px solid #d1d8dd !important; }
+#myTable2 input { padding:8px; width:100%; min-width:120px; border:1px solid #d1d8dd; }
+#myTable2 textarea {  min-width:120px; border:1px solid #d1d8dd; }
+
+#popTable  {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#popTable th,#popTable  td {
+    text-align: left;
+    padding: 8px;
+}
+#popTable tr td{   border: 1px solid #d1d8dd !important; }
+
+
+.popTable  {
+    border-collapse: collapse;
+
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.popTable th,.popTable  td {
+    text-align: left;
+    padding: 8px;
+}
+.popTable tr td{   border: 1px solid #d1d8dd !important; }
+
+
+tr:nth-child(odd){background-color: #f2f2f2; border: 1px solid;}
+tr:nth-child(even){background-color: #ffffff}
+
+.purchase_pallets { width:100%;   min-width:50px !important;}
+.icost_center { width:100%;   min-width:50px !important;}
+#iqty { margin-right:1%; width:45% !important;   min-width:50px !important;}
+.weight { width:100%; min-width:40px !important; }
+#iprice { margin-left:1%; width:45% !important;   min-width:50px !important;}
+.gross_weight { display:none; margin-left:1%; width:40% !important;   min-width:50px !important;}
+#qtotal { margin:0 0 1% 0; width:45% !important; float:left;  }
+#stotal { margin:1% 0 0 0; width:45% !important; float:left;   }
+.idesc { width: 100% !important;  }
+.iref { width: 100% !important;  }
+.gwgtitotal {display:none; }
+#myTable .idesc, #salesTable .idesc, #salesTemplatetable .idesc { min-width:200px !important;  }
+.text-span { width:40%; float:left;}
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+//  background-color: #f1f1f1;
+  padding: 8px;
+  font-size: 12px;
+}
+input[type=text] {
+ // background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+.width100 { width:100px !important; }
+.width40 { width:40px !important; }
+.width50 { width:50px !important; }
+.width60 { width:60px !important; }
+.width70 { width:70px !important; }
+.width80 { width:80px !important; }
+.width90 { width:90px !important; }
+.hidecol { display:none; }
+.zui-table {
+    border: none;
+    border-right: solid 1px #DDEFEF;
+    border-collapse: separate;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.zui-table thead th {
+    background-color: #DDEFEF;
+    border: none;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+.zui-table tbody td {
+    border-bottom: solid 1px #DDEFEF;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+.zui-wrapper {
+    position: relative;
+}
+.zui-scroller {
+    margin-left: 141px;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding-bottom: 5px;
+}
+.zui-table tr td:nth-child(1), .zui-table tr td:nth-child(2) {
+    border-left: solid 1px #DDEFEF;
+    border-right: solid 1px #DDEFEF;
+    left: 0;
+    position: absolute;
+    top: auto;
+	background-color:#f2f2f2;
+}
+.zui-table tr td:nth-child(2){
+	margin-left:16px;
+    width: 124px;
+}
+.zui-table tr td:nth-child(1){
+    width: 17px;
+}
+
+#salesTable tr:last-child td, #myTable tr:last-child td, #salesTemplatetable tr:last-child td {
+	padding:10px !important;
+}
+
+
+.zui-table1 {
+    border: none;
+    border-right: solid 1px #DDEFEF;
+    border-collapse: separate;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.zui-table1 thead th {
+    background-color: #DDEFEF;
+    border: none;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+.zui-table1 tbody td {
+    border-bottom: solid 1px #DDEFEF;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+.zui-wrapper1 {
+    position: relative;
+}
+.zui-scroller1 {
+    margin-left: 141px;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding-bottom: 5px;
+}
+.zui-table1 tr td:nth-child(1), 
+.zui-table1 tr th:nth-child(1) {
+    border-left: solid 1px #DDEFEF;
+    border-right: solid 1px #DDEFEF;
+    left: 0;
+    position: absolute;
+    top: auto;
+	background-color:#f2f2f2;
+}
+.zui-table1 tr td:nth-child(1),
+.zui-table1 tr th:nth-child(1){
+    width: 147px;
+}
+
+
+#qtyTable {
+  position: relative;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+
+/*thead*/
+#qtyTable thead {
+  position: relative;
+  display: block; /*seperates the header from the body allowing it to be positioned*/
+  overflow: visible;
+}
+
+#qtyTable thead th {/*first cell in the header*/
+    min-width: 60px;
+    max-width: 60px;
+	text-align:center;
+}
+
+#qtyTable thead th:nth-child(1) {/*first cell in the header*/
+  position: relative;
+//  display: block; /*seperates the first cell in the header from the header*/
+  background-color: #f2f2f2;
+  min-width: 120px;
+  max-width: 120px;
+  border-right: 1px solid #d4d4d4;
+  text-align:left;
+}
+
+#qtyTable tbody td {/*first cell in the header*/
+    min-width: 60px;
+    max-width: 60px;
+	text-align:center;
+}
+
+
+/*tbody*/
+#qtyTable tbody {
+  position: relative;
+  display: block; /*seperates the tbody from the header*/
+  height: 70vh;
+  overflow: scroll;
+  
+}
+
+#qtyTable tbody tr td:nth-child(1) {  /*the first cell in each tr*/
+  position: relative;
+ // display: block; /*seperates the first column from the tbody*/
+   background-color: #f2f2f2;
+   min-width: 120px;
+  max-width: 120px;
+  border-right: 1px solid #d4d4d4;
+  text-align:left;
+}
+
+#qtyadjTable {
+  position: relative;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+
+/*thead*/
+#qtyadjTable thead {
+  position: relative;
+  display: block; /*seperates the header from the body allowing it to be positioned*/
+  overflow: visible;
+}
+
+#qtyadjTable thead th {/*first cell in the header*/
+    min-width: 63px;
+    max-width: 63px;
+	text-align:center;
+}
+
+#qtyadjTable thead th:nth-child(1) { /*first cell in the header*/
+  position: relative;
+//  display: block; /*seperates the first cell in the header from the header*/
+  background-color: #f2f2f2;
+  min-width: 120px;
+  max-width: 120px;
+  border-right: 1px solid #d4d4d4;
+  text-align:left;
+}
+
+#qtyadjTable thead th:nth-child(2) {
+	min-width:224px;
+	max-width:224px;
+}
+#qtyadjTable thead th:nth-child(3) {
+	min-width:100px;
+	max-width:100px;
+}
+
+#qtyadjTable thead th:nth-child(4) {
+	min-width:66px;
+	max-width:66px;
+}
+
+/*tbody*/
+#qtyadjTable tbody {
+  position: relative;
+  display: block; /*seperates the tbody from the header*/
+  height: 70vh;
+  overflow: scroll;
+  
+}
+
+#qtyadjTable tbody td {/*first cell in the header*/
+    min-width: 63px;
+    max-width: 63px;
+	text-align:center;
+}
+
+
+#qtyadjTable tbody tr td:nth-child(1) {  /*the first cell in each tr*/
+  position: relative;
+ // display: block; /*seperates the first column from the tbody*/
+   background-color: #f2f2f2;
+   min-width: 120px;
+  max-width: 120px;
+  border-right: 1px solid #d4d4d4;
+  text-align:left;
+}
+
+#qtyadjTable tbody td:nth-child(2) {
+	min-width:224px;
+	max-width:224px;
+}
+
+#qtyadjTable tbody td:nth-child(3) {
+	min-width:100px;
+	max-width:100px;
+}
+
+#qtyadjTable tbody td:nth-child(4) {
+	min-width:66px;
+	max-width:66px;
+}
+
+@media only screen and (min-width: 768px) {
+  #qtyTable {
+    width: 735px;
+  }
+  #qtyTable tbody {
+    width: 735px;
+  }
+  #qtyTable thead {
+    width: 735px;
+  }
+  #qtyadjTable {
+    width: 735px;
+  }
+  #qtyadjTable tbody {
+    width: 735px;
+  }
+  #qtyadjTable thead {
+    width: 735px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #qtyTable {
+    width: 955px;
+  }
+  #qtyTable tbody {
+    width: 955px;
+  } 
+  #qtyTable thead {
+    width: 955px;
+  }
+  #qtyadjTable {
+    width: 955px;
+  }
+  #qtyadjTable tbody {
+    width: 955px;
+  } 
+  #qtyadjTable thead {
+    width: 955px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  #qtyTable {
+    width: 1155px;
+  }
+  #qtyTable thead {
+    width: 1155px;
+  }
+  #qtyTable tbody {
+    width: 1155px;
+  }
+  #qtyadjTable {
+    width: 1155px;
+  }
+  #qtyadjTable thead {
+    width: 1155px;
+  }
+  #qtyadjTable tbody {
+    width: 1155px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #qtyTable {
+    width: 95vw;
+  }
+  #qtyTable tbody {
+    width: 95vw;
+  }
+  #qtyTable thead {
+    width: 95vw;
+  }
+  #qtyadjTable {
+    width: 95vw;
+  }
+  #qtyadjTable tbody {
+    width: 95vw;
+  }
+  #qtyadjTable thead {
+    width: 95vw;
+  }
+}

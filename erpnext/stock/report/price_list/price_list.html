@@ -1,0 +1,104 @@
+<style>
+@media screen {
+	.print-format {
+		padding: 8mm;
+	}
+}
+@media print {
+	.print-format {
+		padding: 0mm !important;
+	}
+}
+
+.print-format {
+	font-size: 9pt !important;
+}
+.right-border {
+    border-right: 1px #a1a8ab solid !important;
+}
+.print-format td, .print-format th {
+    padding: 3px !important;
+	vertical-align:middle !important;
+}
+</style>
+
+{%
+
+var item_groups = {};
+
+data = data.filter(d => d.print_in_price_list);
+
+for(var i = 0; i < data.length; i++) {
+    if (!data[i].item_code) {
+        continue;
+    }
+
+    if (!item_groups.hasOwnProperty(data[i].item_group)) {
+        item_groups[data[i].item_group] = [];
+    }
+
+    var group = item_groups[data[i].item_group];
+    group.push(data[i]);
+}
+
+$.each(item_groups || {}, function(item_group, items) {
+    item_groups[item_group] = items.sort((a, b) => a.item_name.localeCompare(b.item_name));
+});
+
+%}
+
+<div style="font-size: 8pt;">{%= columns[0].price_list_note %}</div>
+
+<table class="table table-bordered" style="margin-top: 3px;">
+	<thead>
+        <tr><th class="text-center" style="font-size: 10pt;" colspan="10">
+            {% if (filters.customer_name) { %}
+                {%= filters.customer_name %} —
+            {% } else if(filters.customer) { %}
+                {%= filters.customer %} —
+            {% } %}
+            Price List: {%= __("Valid From") %} {%= new frappe.datetime.datetime(filters.date).format("ddd, D MMMM, YYYY") %}
+            {% if (filters.valid_days) { %}
+                {%= __("To") %} {%= new frappe.datetime.datetime(frappe.datetime.add_days(filters.date, filters.valid_days-1)).format("ddd, D MMMM, YYYY") %}
+            {% } %}
+        </th></tr>
+		<tr>
+            <th style="width: 37%">{%= __("Product") %}</th>
+            <th style="width: 4%" class="text-center">{%= __("Unit Qty") %}</th>
+            <th style="width: 3%" class="text-center">{%= __("Origin") %}</th>
+            <th style="width: 3%" class="text-center">{%= __("Price") %}</th>
+            <th style="width: 3%" class="right-border text-right">{%= __("Order") %}</th>
+
+            <th style="width: 37%">{%= __("Product") %}</th>
+            <th style="width: 4%" class="text-center">{%= __("Unit Qty") %}</th>
+            <th style="width: 3%" class="text-center">{%= __("Origin") %}</th>
+            <th style="width: 3%" class="text-center">{%= __("Price") %}</th>
+            <th style="width: 3%" class="text-right">{%= __("Order") %}</th>
+		</tr>
+	</thead>
+	<tbody>
+    {% $.each(item_groups || {}, function(item_group, items) { %}
+        <tr>
+            <td colspan="10" class="text-center" style="font-size: 9pt"><strong>{%= item_group %}</strong></td>
+        </tr>
+
+        {% $.each(items || [], function(i, d) { %}
+            {% if (i % 2 == 0) { %}
+            <tr>
+            {% } %}
+                <td>{%= d.item_name %}</td>
+                <td class="text-center text-nowrap">{%= d.alt_uom_size %} {%= d.alt_uom %}</td>
+                <td class="text-center">{%= d.origin %}</td>
+                <td class="text-center">{%= d.print_rate ? format_currency(d.print_rate) : '' %}</td>
+                <td class="text-right{% if (i % 2 != 1) { %} right-border{% } %}"></td>
+                {% if (i % 2 == 0 && i == items.length - 1) { %}
+                    <td></td><td></td><td></td><td></td><td></td>
+                {% } %}
+            {% if (i % 2 == 1 || i == items.length - 1) { %}
+            </tr>
+            {% } %}
+        {% }); %}
+    {% }); %}
+	</tbody>
+</table>
+<p class="text-right text-muted" style="margin-bottom:0; padding-bottom:0;">{{ __("Printed On ") }}{%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p>

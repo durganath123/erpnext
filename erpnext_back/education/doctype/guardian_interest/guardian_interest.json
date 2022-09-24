@@ -1,0 +1,29 @@
+{
+ "creation": "2016-07-25 07:19:55.113871",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "interest"
+ ],
+ "fields": [
+  {
+   "fieldname": "interest",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Interest",
+   "options": "Interest",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:50.507942",
+ "modified_by": "Administrator",
+ "module": "Education",
+ "name": "Guardian Interest",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "restrict_to_domain": "Education",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

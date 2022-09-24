@@ -1,0 +1,102 @@
+{
+ "creation": "2014-07-09 16:13:35.452759",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "reference_type",
+  "reference_name",
+  "remarks",
+  "posting_date",
+  "is_advance",
+  "reference_row",
+  "col_break1",
+  "invoice_number",
+  "amount",
+  "allocated_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "reference_type",
+   "fieldtype": "Link",
+   "label": "Reference Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Reference Name",
+   "options": "reference_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "is_advance",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Is Advance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference_row",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reference Row",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "invoice_number",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Invoice Number",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "allocated_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Allocated amount",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Remark",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-19 12:13:01.495861",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Payment Reconciliation Payment",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

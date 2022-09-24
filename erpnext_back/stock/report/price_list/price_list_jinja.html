@@ -1,0 +1,167 @@
+{%- from "templates/print_formats/standard_macros.html" import add_header,
+	 render_field -%}
+
+{%- set item_groups = printable_data -%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }}</title>
+	<meta name="generator" content="frappe">
+	<link type="text/css" rel="stylesheet"
+        href="/assets/frappe/css/bootstrap.css">
+	<link type="text/css" rel="stylesheet"
+        href="/assets/frappe/css/font-awesome.css">
+	{%- if has_rtl -%}
+		<link type="text/css" rel="stylesheet" href="assets/css/frappe-rtl.css">
+	{%- endif -%}
+</head>
+<body>
+	<div class="print-format-gutter">
+	    <div class="print-format">
+            <div id="header-html" class="hidden-pdf">
+                <div class="letter-head" style="padding-top:5mm;">{{ letter_head }}</div>
+            </div>
+
+            {% if print_settings.repeat_header_footer %}
+            <div id="footer-html" class="visible-pdf">
+                {% if not no_letterhead and footer %}
+                <div class="letter-head-footer">
+                    {{ footer }}
+                </div>
+                {% endif %}
+                <p class="text-center small page-number visible-pdf">
+                    {{ _("Page {0} of {1}").format('<span class="page"></span>', '<span class="topage"></span>') }}
+                </p>
+            </div>
+            {% endif %}
+
+
+
+
+
+
+
+
+
+            <style>
+/*
+.print-format {
+  margin-left:10mm;
+  margin-right:10mm;
+}
+*/
+            @media screen {
+                .print-format {
+                    padding: 8mm;
+                }
+            }
+            @media print {
+                .print-format {
+                    padding: 0mm !important;
+                    zoom: 95%;
+                }
+            }
+
+            .print-format {
+                font-size: 9pt !important;
+            }
+            .right-border {
+                border-right: 1px #a1a8ab solid !important;
+            }
+            .print-format td, .print-format th {
+                padding: 3px !important;
+                vertical-align:middle !important;
+            }
+            </style>
+
+            <div style="font-size: 8pt;">{{ columns[1].price_list_note or "" }}</div>
+
+            <table class="table table-bordered" style="margin-top: 3px;">
+                <thead>
+                    <tr><th class="text-center" style="font-size: 10pt;" colspan="10">
+                        {% if filters.customer_name %}
+                            {{ filters.customer_name }} —
+                        {% elif filters.customer %}
+                            {{ filters.customer }} —
+                        {% endif %}
+                        Price List: {{ _("Valid From") }} {{ frappe.format_date(filters.date, "EEE, d MMMM, Y") }}
+                        {% if filters.valid_days %}
+                            {{ _("To") }} {{ frappe.format_date(frappe.utils.add_days(filters.date, filters.valid_days-1), "EEE, d MMMM, Y") }}
+                        {% endif %}
+                    </th></tr>
+                    <tr>
+                        <th style="width: 37%">{{ _("Product") }}</th>
+                        <th style="width: 4%" class="text-center">{{ _("Unit Qty") }}</th>
+                        <th style="width: 3%" class="text-center">{{ _("Origin") }}</th>
+                        <th style="width: 3%" class="text-center">{{ _("Price") }}</th>
+                        <th style="width: 3%" class="right-border text-right">{{ _("Order") }}</th>
+
+                        <th style="width: 37%">{{ _("Product") }}</th>
+                        <th style="width: 4%" class="text-center">{{ _("Unit Qty") }}</th>
+                        <th style="width: 3%" class="text-center">{{ _("Origin") }}</th>
+                        <th style="width: 3%" class="text-center">{{ _("Price") }}</th>
+                        <th style="width: 3%" class="text-right">{{ _("Order") }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item_group, items in item_groups.items() %}
+                    <tr>
+                        <th colspan="10" class="text-center" style="font-size: 9pt"><strong>{{ item_group }}</strong></th>
+                    </tr>
+
+                    {% for d in items %}
+                        {% if (loop.index0 % 2 == 0) %}
+                        <tr>
+                        {% endif %}
+                            <td>{{ d.item_name }}</td>
+                            <td class="text-center text-nowrap">{{ frappe.format_value(d.alt_uom_size) }} {{ d.alt_uom }}</td>
+                            <td class="text-center">{{ d.origin }}</td>
+                            <td class="text-center">{{ frappe.utils.fmt_money(d.print_rate) if d.print_rate else '' }}</td>
+                            <td class="text-right{% if (loop.index0 % 2 != 1) %} right-border{% endif %}"></td>
+                            {% if (loop.index0 % 2 == 0 and loop.index0 == items|len - 1) %}
+                                <td></td><td></td><td></td><td></td><td></td>
+                            {% endif %}
+                        {% if (loop.index0 % 2 == 1 or loop.index0 == items|len - 1) %}
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
+            <p class="text-right text-muted" style="margin-bottom:0; padding-bottom:0;">{{ _("Printed On ") }}{{ frappe.utils.format_datetime(frappe.utils.get_datetime()) }}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+	    </div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const page_div = document.querySelector('.page-break');
+
+			page_div.style.display = 'flex';
+			page_div.style.flexDirection = 'column';
+
+			const footer_html = document.getElementById('footer-html');
+			footer_html.classList.add('hidden-pdf');
+			footer_html.classList.remove('visible-pdf');
+			footer_html.style.order = 1;
+			footer_html.style.marginTop = '20px';
+		});
+	</script>
+</body>
+{%- if comment -%}
+<!-- {{ comment }} -->
+{%- endif -%}
+</html>

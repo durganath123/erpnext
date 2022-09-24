@@ -1,0 +1,468 @@
+{% if not doc.customs_exchange_rate %}
+<h3>Customs exchange rate is not set, please define customs exchange rate:</h3>
+
+{% else %}
+{#{ doc.customs_exchange_rate }#}
+
+
+{% if doc.items_without_hs_code %}
+<h3>The following item(s) do not have HS Code set:</h3>
+<ol>
+	{% for row in doc.items_without_hs_code %}
+	<li><a href="#Form/Item/{{ row.item_code }}" target="_blank">{{ row.item_code }}: {{ row.item_name }}</a></li>
+	{% endfor %}
+</ol>
+
+Please set HS Codes and reload this print format.
+{% else %}
+<div class="page-break">
+	<div id="header-html" class="hidden-pdf">
+		<div class="letter-head">
+			<div class="clearfix">
+				<div class="pull-left" style="width: 70%;">
+					<h3 class="MarBorPadZero">CANADA CUSTOMS CODING FORM<br>DOUANES CANADA - FORMULE DE CODAGE</h3>
+				</div>
+				<h5 class="pull-right page-number visible-pdf text-right" style="width: 30%;">
+					{{ _("Page {0} of {1}").format('<span class="page"></span>', '<span class="topage"></span>') }}
+				</h5>
+			</div>
+
+			<table class="MarBorPadZero">
+				<tr>
+					<td style="width: 27.78%; border-bottom: 0;" colspan="10">
+						<p class="formlabel">
+							1. IMPORTER NAME AND ADDRESS <br> NOM ET ADRESSE DE L IMPORTATEUR
+						</p>
+					</td>
+					<td style="width: 8.33%;" colspan="3">
+						<p class="formlabel">
+							NO. No
+						</p>
+						<p class="formdata">
+							841814478RM0001
+						</p>
+					</td>
+					<td style="width: 63.89%;" rowspan="2" colspan="23">
+						<div class="clearfix">
+							<div class="pull-left" style="width: 50%"><p class="formlabel">2. TRANSACTION NO. - N° DE TRANSACTION</p></div>
+							<div class="pull-right" style="width: 50%"><p style="text-align: right; padding-right: 5px; font-size: 7pt; margin-top:-10px">{{ doc.b3_transaction_no_formatted or '' }}</p></div>
+						</div>
+						<p style="text-align: right; padding-right: 5px;">{{ doc.b3_transaction_no_barcode or '' }}</p>
+					</td>
+				</tr>
+
+				<tr>
+					<td style="border-top: 0; width: 36.11%;" rowspan="3" colspan="13">
+						<p class="formdata">{{ doc.get_formatted('company')}}</p>
+						<p class="formdata">{{ doc.company_address_display }}</p>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="MarBorPadZero" style="border-bottom: 0; width: 2.78%;" colspan="1">
+						<p class="MarBorPadZero formlabel">3 TYPE</p>
+					</td>
+					<td style="border-bottom: 0; width: 8.33%;" colspan="3">
+						<p class="MarBorPadZero formlabel">4 OFFICE NO. <br> N° DE BUREAU</p>
+					</td>
+					<td style="border-bottom: 0; width: 13.89%;" colspan="5">
+						<p class="MarBorPadZero formlabel">5 GST REGISTRATION <br> NO. N° DE TPS</p>
+					</td>
+					<td style="border-bottom: 0; width: 8.33%;" colspan="3">
+						<p class="MarBorPadZero" style="font-size: 6px;">6 PAYMENT CODE <br> CODE DE PAIEMENT</p>
+					</td>
+					<td style="border-bottom: 0; width: 5.56%;" colspan="2">
+						<p class="MarBorPadZero formlabel">7 MODE OF- DE TRANS</p>
+					</td>
+					<td style="border-bottom: 0; width: 5.56%;" colspan="2">
+						<p class="MarBorPadZero" style="font-size: 6px;">8 PORT OF UNLADING <br> PORT DE DÉBAR</p>
+					</td>
+					<td style="border-bottom: 0; width: 19.44%;" colspan="7">
+						<p class="MarBorPadZero formlabel">9 TOTAL VFD - TOTAL DE LA VD</p>
+					</td>
+				</tr>
+
+				<tr>
+					<td style="border-top: 0;" colspan="1">
+						<p class="MarBorPadZero formdata">c</p>
+					</td>
+					<td style="border-top: 0;" colspan="3">
+						<p class="MarBorPadZero formdata">497</p>
+					</td>
+					<td style="border-top: 0;" colspan="5">
+						<p class="MarBorPadZero formdata"><br></p>
+					</td>
+					<td style="border-top: 0;" colspan="3">
+						<p class="MarBorPadZero formdata"><br></p>
+					</td>
+					<td style="border-top: 0;" colspan="2">
+						<p class="MarBorPadZero formdata">1</p>
+					</td>
+					<td style="border-top: 0;" colspan="2">
+						<p class="MarBorPadZero formdata"><br></p>
+					</td>
+					<td style="border-top: 0; text-align: center;" colspan="7">
+						<p class="MarBorPadZero formdata">
+							<h3 class="MarBorPadZero">{{frappe.format_value(frappe.utils.flt(doc.base_customs_total, 0), df=doc.meta.get_field('total_qty'))}}</h3>
+						</p>
+
+					</td>
+				</tr>
+
+				<tr>
+					<td style="width: 2.78%; border-bottom: 0;" rowspan="3" colspan="1">
+						<p class="formlabel">10 SUB HDR NO. <br> N° DE SOUSEN-TÊTE</p>
+					</td>
+					<td style="width: 25%; border-bottom: 0;" colspan="9">
+						<p class="formlabel">11 VENDOR NAME - NOM DU VENDEUR</p>
+					</td>
+					<td style="width: 8.33%;" colspan="3">
+						<p class="formlabel">NO. No</p>
+						<p class="formdata"><br></p>
+					</td>
+					<td style="width: 11.11%; border-bottom: 0;" colspan="4">
+						<p style="font-size: 6px;">12 COUNTRY OF ORIGIN <br> PAYS D'ORIGINE</p>
+					</td>
+					<td style="width: 11.11%; border-bottom: 0;" colspan="4">
+						<p class="formlabel">13 PLACE OF EXPORT <br> LIEU D'EXPORTATION</p>
+					</td>
+					<td style="width: 11.11%; border-bottom: 0;" colspan="4">
+						<p style="font-size: 6px;">14 TARIFF TREATMENT <br> TRAITEMENT TARIFAIRE</p>
+					</td>
+					<td style="width: 11.11%; border-bottom: 0;" colspan="4">
+						<p class="formlabel">15 U.S. PORT OF EXIT <br> BUREAU DE SORTIE DES É.-U</p>
+					</td>
+					<td style="width: 19.44%; vertical-align: middle !important;" rowspan="5" colspan="7">
+						<p class="fom3label" style="text-align: center; color: lightgrey; font-size:7px;">RESERVED FOR<br/>CCRA<br/>USE
+							<br/><br/>RÉSERVÉ À<br/>L'USAGE DE<br/>L'AGENCE</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 36.7%; border-top: 0;" rowspan="3" colspan="12">
+						<p class="formdata MarBorPadZero">{{doc.get_formatted('supplier')}}</p>
+						<p class="formdata MarBorPadZero">{{doc.get_formatted('address_display')}}</p>
+					</td>
+					<td style="border-top: 0;" colspan="4">
+						{% set country =  frappe.db.get_value('Supplier', doc.supplier, 'country') %}
+						{% set country_code = frappe.get_cached_value('Country', country, 'code') if country else "" %}
+						<p class="formdata MarBorPadZero" style="text-align: center;">{{ country_code | upper }}</p>
+					</td>
+					<td style="border-top: 0;" colspan="4">
+						<p class="formdata MarBorPadZero" style="text-align: center;">{{  country_code | upper }}</p>
+					</td>
+					<td style="border-top: 0;" colspan="4">
+						<p class="formdata MarBorPadZero">2</p>
+					</td>
+					<td style="border-top: 0;" colspan="4">
+						<p class="formdata MarBorPadZero"><br></p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-bottom: 0; width: 16.67;" colspan="6">
+						<p class="formlabel MarBorPadZero">16 DIRECT SHIPMENT DATE <br> DATE D'EXPÉDITION
+							DIRECTE
+						</p>
+					</td>
+					<td style="border-bottom: 0;width: 5.56%;" colspan="2">
+						<p class="formlabel MarBorPadZero">17 CRCY. CODE DEVISE
+						</p>
+					</td>
+					<td style="border-bottom: 0; width: 11.11%;" colspan="4">
+						<p class="formlabel MarBorPadZero">18 TIME LIMIT - DÉLAI
+						</p>
+					</td>
+					<td style="border-bottom: 0; width: 11.11%;" colspan="4">
+						<p class="formlabel MarBorPadZero">19 FREIGHT - FRET
+						</p>
+					</td>
+				</tr>
+
+				<tr>
+					<td style="border-top: 0;">
+						<p class="formdata">1</p>
+					</td>
+					<td style="border-top: 0;" colspan="6">
+						<p class="formdata">
+						<table style="width: 100%;" class="MarBorPadZero">
+							<tr>
+								<td class="MarBorPadZero">
+									<p class="MarBorPadZero formlabel" style="text-align: center;">M</p>
+									<p class="MarBorPadZero formdata" style="text-align: center;">
+										{{ frappe.format_date(doc.shipping_date, 'M') }}</p>
+								</td>
+								<td class="MarBorPadZero">
+									<p class="MarBorPadZero formlabel" style="text-align: center;">D/J</p>
+									<p class="MarBorPadZero formdata" style="text-align: center;">
+										{{ frappe.format_date(doc.shipping_date, 'd') }}</p>
+								</td>
+							</tr>
+						</table>
+						</p>
+					</td>
+					<td style="border-top: 0;" colspan="2">
+						<p class="formdata MarBorPadZero" style="text-align: center;">{{ doc.currency }}</p>
+					</td>
+					<td style="border-top: 0;" colspan="4">
+						<p class="formdata MarBorPadZero"><br></p>
+					</td>
+					<td style="border-top: 0;" colspan="4">
+						<p class="formdata MarBorPadZero"><br></p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 0;" colspan="13">
+					</td>
+					<td class="curr" colspan="8">
+						<p class="formlabel" style="text-align: center;">Currency Rate</p>
+						<div class="formdata" style="border: 1px solid black; height: 20px; width: 95%; margin: auto;">
+							<p class="formdata" style="text-align: center;">
+								{{ doc.get_formatted('customs_exchange_rate') }}</p>
+						</div>
+					</td>
+					<td colspan="8">
+						<p class="formlabel">20 RELEASE DATE - DATE DE LA MAINLEVÉE</p>
+						<p> <br> </p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<table style="width: 100%; border: 0; margin: 0; padding: 0;">
+		{#% for i in range(2) %#}
+		{% for row in doc.items_by_hs_code.values() %}
+		<tr>
+			<td style="border:0; padding:0 !important;">
+				<table style="width: 100%;">
+					<tr>
+						<td
+							style="width:1%; {% if loop.index % 2 == 0 %} border-bottom:0; {% else %} background-color: black;  {% endif %}">
+						</td>
+						<td style="width: 7.7%; border-bottom: 0;" colspan="6">
+							<p class="formlabel">21 LINE <br> LIGNE</p>
+							<p class="formdata">{{ loop.index  }}</p>
+						</td>
+						<td style="width:32.05%; border-bottom: 0;" colspan="25">
+							<p class="formlabel">22 DESCRIPTION <br> DÉSIGNATION</p>
+							<p class="formdata">{{ row.description}}</p>
+						</td>
+						<td style="width:12.82%; border-bottom: 0;" colspan="10">
+							<p class="formlabel">23 WEIGHT / KGM <br> POIDS / KGM</p>
+							<p class="formdata"><br></p>
+						</td>
+						<td style="width:26.92%; border-bottom: 0;" colspan="21">
+							<p class="formlabel" style="border: 0; margin: 0; padding: 0;"> PREVIOUS TRANSACTION -
+								TRANSACTION ANTÉRIEURE</p>
+							<table style="width: 100%; border: 0; margin: 0; padding: 0;">
+								<tr>
+									<td style="width: 70%; border: 0; margin: 0; padding: 0 !important;">
+										<p class="formlabel" style="border: 0; margin: 0; padding: 0;">24 NUMBER -
+											NUMÉRO</p>
+										<p class="formdata"><br></p>
+									</td>
+									<td style="width: 30%; border: 0; margin: 0; padding: 0 !important;">
+										<p class="formlabel" style="border: 0; margin: 0; padding: 0;">25 LINE-LIGNE</p>
+										<p class="formdata"><br></p>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td style="width:19.23%; border-bottom: 0;" colspan="15">
+							<p class="formlabel">26 SPECIAL AUTHORITY <br> AUTORISATION SPÉCIALE</p>
+							<p class="formdata"><br></p>
+						</td>
+					</tr>
+				</table>
+
+				<table style="width: 100%;">
+					<td style="width:1%; {% if loop.index % 2 == 0 %} border-bottom:0; border-top:0; {% else %} background-color: black;  {% endif %}"">
+					</td>
+					<td style=" width: 15.63%; border-bottom: 0;" colspan="15">
+						<p class="formlabel">27 CLASSIFICATION NO. <br> N° DE CLASSEMENT</p>
+						<p class="formdata">{{ row.hs_code }}</p>
+					</td>
+					<td style="width:8.33%; border-bottom: 0;" colspan="8">
+						<p class="formlabel">28 TARIFF CODE <br> TARIFAIRE</p>
+						<p class="formdata"><br></p>
+					</td>
+					<td style="width:11.53%; border-bottom: 0;" colspan="12">
+						<p class="formlabel">29 QUANTITY <br> QUANTITÉ</p>
+						<p class="formdata">{{ frappe.format(row.net_weight, df=doc.meta.get_field('total_qty')) }}</p>
+					</td>
+					<td style="width:5.21%; border-bottom: 0;" colspan="5">
+						<p class="formlabel">30 <br> U - M</p>
+						<p class="formdata">kg</p>
+					</td>
+					<td style="width:7.21%; border-bottom: 0;" colspan="5">
+						<p class="formlabel">31 VFD CODE <br> CODE VD</p>
+						<p class="formdata">13</p>
+					</td>
+					<td style="width:7.21%; border-bottom: 0;" colspan="5">
+						<p class="formlabel">32 SIMA CODE <br> CODE DE LMSI</p>
+						<p class="formdata">0</p>
+					</td>
+					<td style="width:11.42%; border-bottom: 0;" colspan="10">
+						<p style="font-size: 6px !important;">33 RATE OF CUSTOMS DUTY <br> TAUX DE DROIT DE DOUANE</p>
+						<p class="formdata">0.0000</p>
+					</td>
+					<td style="width:7.42%; border-bottom: 0;" colspan="10">
+						<p class="formlabel">34 E.T. RATE <br> TAUX T.A.</p>
+						<p class="formdata">0.0000</p>
+					</td>
+					<td style="width:8.33%; border-bottom: 0;" colspan="8">
+						<p class="formlabel">35 RATE OF GST <br> TAUX DE TPS</p>
+						<p class="formdata">59.00</p>
+					</td>
+					<td style="width:17.71%; border-bottom: 0;" colspan="17">
+						<p style="font-size: 6px !important;"> 36 VALUE FOR CURRENCY CONVERSION <br> CONVERSION VALEUR
+							POUR CHANGE</p>
+						<p class="formdata">
+							{{ frappe.format_value(row.amount, df=doc.meta.get_field('total'), currency=doc.currency) }}
+						</p>
+					</td>
+				</table>
+
+				<table style="width: 100%; ">
+					<tr>
+						<td
+							style="width:1%; {% if loop.index % 2 == 0 %} border-top:0; {% else %} background-color: black;  {% endif %}">
+						</td>
+						<td style="">
+							<p class="formlabel">37 VALUE FOR DUTY <br> VALEUR EN DOUANE</p>
+							<p class="formdata">
+								{{ frappe.format_value(row.base_amount, df=doc.meta.get_field('amount'), currency=doc.currency) }}
+							</p>
+						</td>
+						<td>
+							<p class="formlabel">38 CUSTOMS DUTIES <br> DROITS DE DOUANE</p>
+							<p class="formdata">$0.00</p>
+						</td>
+						<td>
+							<p class="formlabel">39 SIMA ASSESSMENT <br> COTISATION DE LMSI</p>
+							<p class="formdata">$0.00</p>
+						</td>
+						<td>
+							<p class="formlabel">40 EXCISE TAX <br> TAXE D'ACCISE</p>
+							<p class="formdata">$0.00</p>
+						</td>
+						<td>
+							<p class="formlabel">41 VALUE FOR TAX <br> VALEUR POUR TAXE</p>
+							<p class="formdata">
+								{{ frappe.format_value(row.base_amount, df=doc.meta.get_field('amount'), currency=doc.currency) }}
+							</p>
+						</td>
+						<td>
+							<p class="formlabel">42 GST <br> TPS</p>
+							<p class="formdata">$0.00</p>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		{% endfor %}
+		{#% endfor %#}
+	</table>
+
+	<div id="footer-html" class="visible-pdf" style="display: block !important; order: 1;">
+		<div class="letter-head-footer">
+			<div class="clearfix">
+				<div style="border: 1px solid black; float:left; width: 40%; padding: 3px;">
+					<p class="formlabel">DECLARATION - DÉCLARATION</p>
+					<p class="formlabel">
+						<span>I: <br>JE: <span
+								style="display: inline-block; border-bottom: 1px solid #000; width: 280px; "></span></span>
+					</p>
+					<p style="text-align: center; font-size: 6px;">PLEASE PRINT NAME - LETTRES MOULÉES S.V.P</p>
+					<p class="formlabel">
+						<span>OF: <br>DE: <span
+								style="display: inline-block; border-bottom: 1px solid #000; width: 280px;"><span
+									style="margin-left: 50px; font-size: 10px !important;">{{ doc.company }}
+									905-364-1600</span></span></span>
+					</p>
+					<p style="text-align: center; font-size: 6px; margin-top: 5px !important;">IMPORTER / AGENT -
+						IMPORTATEUR / AGENT</p>
+					<p style="font-size: 6px; margin-top: 5px !important;">DECLARE THE PARTICULARS OF THIS DOCUMENT TO
+						BE TRUE,
+						ACCURATE AND COMPLETE. DÉCLARE QUE LES RENSEIGNEMENTS CI-DESSUS SONT VRAIS ET COMPLETS.
+					</p>
+					<br>
+					<p style="margin-left: 28px !important;">{{ frappe.format_date(doc.schedule_date, 'MM-dd-YYYY')}}</p>
+					<span
+						style="float: left; margin: 0 10px; border-top: 1px solid #000; width: 90px; text-align: center; font-size: 7px;">
+						<p>Date</p>
+					</span>
+					<span
+						style="float: left; margin: 0 10px; border-top: 1px solid #000; width: 160px; text-align: center; font-size: 7px;">Signature</span>
+				</div>
+
+				<div style="float: left; width: 30%;">
+					<div class="formlabel" style="border: 1px solid black; height: 30px; width: 95%; margin: auto;">43
+						DEPOSIT -
+						DÉPÔT</div>
+					<div class="formlabel"
+						style="border: 1px solid black; height: 30px; width: 60%; margin: auto; margin-top: 4px !important; margin-bottom: 10px !important;">
+						44 WAREHOUSE NO. - N° D'ENTREPÔT
+						<p class="formdata" style="text-align: center;">{{ doc.get_formatted('b3_warehouse_no') }}</p>
+					</div>
+					<div class="formlabel"
+						style="border: 1px solid black; height: 30px; width: 95%; margin: auto; margin-top: 4px !important; margin-bottom: 10px !important;">
+						45 CARGO CONTROL NO. - N° DE CONTRÔLE DU FRET
+						<p class="formdata" style="text-align: center;">{{ doc.get_formatted('airway_bill_no') }}</p>
+					</div>
+					<div class="formlabel"
+						style="border: 1px solid black; height: 36px; width: 95%; margin: auto; margin-top: 4px !important;">
+						46
+						CARRIER CODE AT IMPORTATION <br> CODE DE TRANSPORTEUR À L'IMPORTATION
+						<p class="formdata" style="text-align: center;">{{ doc.get_formatted('carrier_code') }}</p>
+					</div>
+				</div>
+				<div style="float: right; width: 30%;">
+					<table style="width: 100%; margin: 0 !important; padding: 0 !important; border: 0 !important;">
+						<tr>
+							<td style="width: 35%; font-size: 7px; vertical-align: middle !important; height: 23px;">
+								47 CUSTOMS DUTIES<br>DROITS DE DOUANE
+							</td>
+							<td style="width: 90%;">
+								<p class="formdata" style="text-align: end; vertical-align: bottom;">0.00</p>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 35%; font-size: 7px; vertical-align: middle !important; height: 25px;">
+								48 SIMA ASSESSMENT<br>COTISATION DE LMSI
+							</td>
+							<td style="width: 90%;">
+								<p class="formdata" style="text-align: end; vertical-align: bottom;">0.00</p>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 35%; font-size: 7px; vertical-align: middle !important; height: 25px;">
+								49 EXCISE TAX<br>TAXE D'ACCISE
+							</td>
+							<td style="width: 90%;">
+								<p class="formdata" style="text-align: end; vertical-align: bottom;">0.00</p>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 35%; font-size: 7px; vertical-align: middle !important; height: 25px;">
+								50 GST <br>TPS
+							</td>
+							<td style="width: 90%;">
+								<p class="formdata" style="text-align: end; vertical-align: bottom;">0.00</p>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 35%; font-size: 7px; vertical-align: middle !important; height: 25px;">
+								51<br>TOTAL
+							</td>
+							<td style="width: 90%;">
+								<p class="formdata" style="text-align: end; vertical-align: bottom;">0.00</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endif %}

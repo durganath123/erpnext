@@ -1,0 +1,23 @@
+{% from "erpnext/templates/includes/order/order_macros.html" import item_name_and_description %}
+{% from "erpnext/templates/includes/macros.html" import product_image_square %}
+
+<tr class="default-item-row" data-item-code="{{ item.item_code }}">
+    <td class="text-center">
+        <div class="default-product-image" data-item-image="{{ item.website_image or item.image or '' }}">
+            {{product_image_square(item.thumbnail or item.website_image or item.image, "default-item-image")}}
+        </div>
+    </td>
+    <td class="" style="vertical-align: middle;">
+        {{item.item_name}}
+    </td>
+    <td class="text-center" style="vertical-align: middle;">
+        {{ item.stock_uom}}
+    </td>
+    <td class="text-right" style="vertical-align: middle;">
+        {{item.get_formatted("alt_uom_size")}}
+        <span class="text-muted small">{{item.alt_uom}}</span>
+    </td>
+    <td class="text-center" style="vertical-align: middle;">
+        <i class="fa fa-close btn-remove-item" data-item-code="{{ item.item_code }}" style="color:red;font-size: 15px;cursor: pointer;"></i>
+    </td>
+</tr>

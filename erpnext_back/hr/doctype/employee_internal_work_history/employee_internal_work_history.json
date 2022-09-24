@@ -1,0 +1,67 @@
+{
+ "creation": "2013-02-22 01:27:45",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "branch",
+  "department",
+  "designation",
+  "from_date",
+  "to_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Branch",
+   "oldfieldname": "branch",
+   "oldfieldtype": "Select",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department",
+   "oldfieldname": "department",
+   "oldfieldtype": "Select",
+   "options": "Department"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Designation",
+   "oldfieldname": "designation",
+   "oldfieldtype": "Select",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "oldfieldname": "from_date",
+   "oldfieldtype": "Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "oldfieldname": "to_date",
+   "oldfieldtype": "Date"
+  }
+ ],
+ "idx": 1,
+ "istable": 1,
+ "modified": "2020-06-04 06:59:13.396632",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Employee Internal Work History",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

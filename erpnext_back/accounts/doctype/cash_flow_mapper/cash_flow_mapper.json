@@ -1,0 +1,79 @@
+{
+ "allow_rename": 1,
+ "autoname": "field:section_name",
+ "creation": "2018-02-08 10:00:14.066519",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_name",
+  "section_header",
+  "section_leader",
+  "section_subtotal",
+  "section_footer",
+  "accounts",
+  "position"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Section Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_header",
+   "fieldtype": "Data",
+   "label": "Section Header"
+  },
+  {
+   "description": "e.g Adjustments for:",
+   "fieldname": "section_leader",
+   "fieldtype": "Data",
+   "label": "Section Leader"
+  },
+  {
+   "fieldname": "section_subtotal",
+   "fieldtype": "Data",
+   "label": "Section Subtotal"
+  },
+  {
+   "fieldname": "section_footer",
+   "fieldtype": "Data",
+   "label": "Section Footer"
+  },
+  {
+   "fieldname": "accounts",
+   "fieldtype": "Table",
+   "label": "Accounts",
+   "options": "Cash Flow Mapping Template Details"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Int",
+   "label": "Position",
+   "reqd": 1
+  }
+ ],
+ "modified": "2020-06-04 06:58:42.095516",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Cash Flow Mapper",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "name",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

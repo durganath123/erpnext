@@ -1,0 +1,40 @@
+{
+ "creation": "2015-03-05 12:53:45.342292",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "offer_term",
+  "column_break_2",
+  "value"
+ ],
+ "fields": [
+  {
+   "fieldname": "offer_term",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Offer Term",
+   "options": "Offer Term",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Value / Description",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:42.521313",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Job Offer Term",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

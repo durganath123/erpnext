@@ -1,0 +1,30 @@
+{
+ "creation": "2018-03-06 04:38:49.891787",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:40.938285",
+ "modified_by": "Administrator",
+ "module": "Hub Node",
+ "name": "Hub Users",
+ "owner": "test1@example.com",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,30 @@
+{
+ "creation": "2020-05-11 06:23:00.104646",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_group"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Group",
+   "options": "Item Group",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:31:54.246763",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Customer Item Group",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

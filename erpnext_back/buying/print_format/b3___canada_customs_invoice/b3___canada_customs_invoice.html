@@ -1,0 +1,383 @@
+{% if doc.items_without_hs_code %}
+<h3>The following item(s) do not have HS Code set:</h3>
+<ol>
+	{% for row in doc.items_without_hs_code %}
+	<li><a href="#Form/Item/{{ row.item_code }}" target="_blank">{{ row.item_code }}: {{ row.item_name }}</a></li>
+	{% endfor %}
+</ol>
+
+Please set HS Codes and reload this print format.
+{% else %}
+<!-- Form2 display-->
+<div class="page-break">
+
+	<div id="header-html" class="hidden-pdf">
+		<div class="letter-head">
+			<div class="clearfix">
+				
+				<div class="pull-left" style="width: 45%;">
+					<h4 class="MarBorPadZero">CANADA CUSTOMS INVOICE<br>FACTURE DES DOUANES CANADIENNES</h4>
+				</div>
+
+				<div class="pull-left" style="width: 35%;">
+					{{ doc.b3_transaction_no_barcode or '' }}
+					<div style="font-size: 8pt; margin-top:-5px;">{{ doc.b3_transaction_no_formatted or '' }}</div>
+				</div>
+
+				<table class="pull-right page-number visible-pdf" style="width: 15%; border:0">
+					<tr>
+						<td style="margin: 0 !important; padding: 0 !important;">
+							<p class="form2label" style="margin: 0 !important; padding: 0 !important;">Page</p>
+							<p class="form2data" style="margin: 0 !important; padding: 0 !important;"><span class="page"></span></p>
+						</td>
+						<td
+							style="margin: 0 !important; padding: 0 !important; vertical-align:bottom !important">
+							<p class="form2label" style="margin: 0 !important; padding: 0 !important; text-align: center;">of
+								<br> de</p>
+						</td>
+						<td
+							style="margin: 0 !important; padding: 0 !important; vertical-align:bottom !important">
+							<p class="form2data" style="margin: 0 !important; padding: 0 !important; text-align: center;"><span class="topage"></span></p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<table>
+		<tr>
+			<td rowspan="2" style="width: 50%;" colspan="6">
+				<p class="form2label">1. Vendor (name and address) - Vendeur (nom et adresse)</p>
+				<p class="form2data">{{doc.get_formatted('supplier')}}</p>
+				<p class="form2data">{{ doc.get_formatted('address_display')}}</p>
+			</td>
+			<td colspan="6" style="width: 50%;">
+				<p class="form2label">2. Date of direct shipment to Canada - Date d'expédition directe vers le Canada
+				</p>
+				<p class="form2data" style="text-align: center;">{{ frappe.format_date(doc.shipping_date, 'MM-dd-YYYY')}}</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6" style="width: 50%;">
+				<p class="form2label">3. Other references (include purchaser's order No.) <br>
+					Autres références (inclure le n° de commande de l'acheteur)</p>
+				<p class="form2data"></p>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="3" style="width: 50%;" colspan="6">
+				<p class="form2label">4. Consignee (name and address) - Destinataire (nom et adresse)</p>
+				<p class="form2data">{{doc.get_formatted('company')}}</p>
+				<p class="form2data">{{ doc.company_address_display }}</p>
+			</td>
+			<td colspan="6" style="width: 50%;">
+				<p class="form2label">5. Purchaser's name and address (if other than consignee) <br>
+					Nom et adresse de l'acheteur (s'il diffère du destinataire)
+				</p>
+				<p class="form2data"></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6" style="width: 50%;">
+				<p class="form2label">6. Country of transhipment - Pays de transbordement</p>
+				<p class="form2data">{{ doc.get_formatted('country_of_transhipment')}}</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				<p class="form2label">7. Country of origin of goods <br>
+					Pays d'origine des marchandises
+				</p>
+				<p class="form2data">{{ frappe.db.get_value('Supplier', doc.supplier, 'country')}}</p>
+			</td>
+			<td colspan="4">
+				<p style="font-size: 7px !important; ">IF SHIPMENT INCLUDES GOODS OF DIFFERENT ORIGINS ENTER ORIGINS
+					AGAINST ITEMS IN 12. SI L'EXPÉDITION COMPREND DES MARCHANDISES D'ORIGINES DIFFÉRENTES, PRÉCISEZ LEUR
+					PROVENANCE EN 12.
+				</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td rowspan="2" style="width: 50%;" colspan="6">
+				<p class="form2label">8. Transportation: Give mode and place of direct shipment to Canada <br>
+					Transport : Précisez mode et point d'expédition directe vers le Canada
+				</p>
+				<p class="form2data">{{ doc.get_formatted('order_type')|default("Carrier Name", true)}}</p>
+			</td>
+			<td colspan="6" style="width: 50%;">
+				<p class="form2label">9. Conditions of sale and terms of payment <br>
+					(i.e. sale, consignment shipment, leased goods, etc.) <br>
+					Conditions de vente et modalités de paiement <br>
+					(p. ex. vente, expédition en consignation, location de marchandises, etc.)
+				</p>
+				<p class="form2data"></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6" style="width: 50%;">
+				<p class="form2label">10. Currency of settlement - Devises du paiement</p>
+				<p class="form2data" style="text-align: center;">{{ doc.currency }}</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td rowspan="2" style="width: 10%;">
+				<p class="form2label" style="text-align: center;">11. <br>
+					Number of
+					packages <br>
+					Nombre
+					de colis
+				</p>
+			</td>
+			<td rowspan="2" colspan="6" style="width: 45%;">
+				<p class="form2label">12. Specification of commodities (kind of packages, marks and numbers, general
+					description and characteristics, i.e., grade, quality) <br>
+					Désignation des articles (nature des colis, marques et numéros, description générale
+					et caractéristiques, p. ex. classe, qualité)</p>
+			</td>
+			<td rowspan="2" colspan="2" style="width: 15%;">
+				<p class="form2label">13. Quantity (state unit) <br>
+					Quantité
+					(précisez l'unité)
+				</p>
+			</td>
+			<td colspan="3" style="width: 30%;">
+				<p class="form2label">Selling price - Prix de vente</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				<p class="form2label">14. Unit price <br>
+					Prix unitaire
+				</p>
+			</td>
+			<td colspan="">
+				<p class="form2label">15. Total</p>
+			</td>
+		</tr>
+		{% for row in doc.items_by_hs_code.values() %}
+		<tr>
+			<td style="border-bottom: 0; border-top: 0; padding: 1px !important;">
+				<p class="form2data MarBorPadZero" style="text-align:center;">{{ frappe.format_value(row.qty) }}</p>
+			</td>
+			<td style="border-bottom: 0; border-top: 0; padding: 1px !important;" colspan="6">
+				<p class="form2data MarBorPadZero">{{ row.description }}</p>
+			</td>
+			<td style="border-bottom: 0; border-top: 0; padding: 1px !important; border-right: 0;">
+				<p class="form2data MarBorPadZero" style="text-align: right ;">{{  frappe.format(row.net_weight, df=doc.meta.get_field('total_qty')) }}</p>
+			</td>
+			<td style="border-bottom: 0; border-top: 0; padding: 1px !important; border-left: 0;">
+				<p class="form2data MarBorPadZero">kg</p>
+			</td>
+			<td style="border-bottom: 0; border-top: 0; padding: 1px !important;" colspan="2">
+				<p class="form2data MarBorPadZero" style="text-align: right ;">{{ frappe.format_value(row.rate, df=doc.meta.get_field('total'), currency=doc.currency) }}</p>
+			</td>
+			<td style="border-bottom: 0; border-top: 0; padding: 1px !important;">
+				<p class="form2data MarBorPadZero" style="text-align: right ;">{{ frappe.format_value(row.amount, df=doc.meta.get_field('total'), currency=doc.currency) }}</p>
+			</td>
+		</tr>
+		{% endfor %}
+		<tr>
+			<td rowspan="2" colspan="7">
+				<table style="width:100%; border: 0;">
+					<tr>
+						<td style="border: 1px;">
+							<p class="form2label">
+								18. If any of fields 1 to 17 are included on an attached commercial invoice, check this
+								box
+								Si tout renseignement relativement aux zones 1 à 17 figure sur une ou des factures
+								commerciales ci-attachées, cochez cette case
+								Commercial Invoice No. - N° de la facture commerciale
+							</p>
+						</td>
+						<td style="border:1px; text-align:center; vertical-align: middle !important;">
+							<input type="checkbox">
+						</td>
+					</tr>
+				</table>
+				<table style="border: 0; width: 100%; padding: 0;">
+					<tr>
+						<td style="width:49%; border: 0; vertical-align:middle !important; padding: 0 !important;">
+							<p class="form2label">
+								Commercial Invoice No. - N° de la facture commerciale
+							</p>
+
+						</td>
+						<td style="width: 1%; vertical-align:middle !important; border: 0; padding: 0 !important;">
+							<i class="fa fa-caret-right" style="font-size:30px"></i>
+						</td>
+						<td style="border: 0; width: 50%; vertical-align: middle !important; padding: 0 !important;">
+							<p class="form2data">{{doc.get_formatted('pickup_no')}}</p>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td colspan="4">
+				<p class="form2label">
+					16. Total weight - Poids total
+				</p>
+			</td>
+			<td rowspan="2">
+				<p class="form2label">17. Invoice total <br>
+					Total de la facture
+				</p>
+				<p class="form2data" style="text-align: right ;">{{ doc.get_formatted('total')}}</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-right:0;">
+				<p class="form2label">Net</p>
+				<p class="form2data" style="text-align: right ;">{{ frappe.format(doc.total_net_weight, df=doc.meta.get_field('total_qty'))}}</p>
+			</td>
+			<td style="border-left: 0;">
+				<p class="form2data" style="margin-top:18px">kg</p>
+			</td>
+			<td style="border-right: 0;">
+				<p class="form2label">Gross - Brut</p>
+				<p class="form2data" style="text-align: right ;">{{ doc.get_formatted('awb_gross_weight')}}</p>
+			</td>
+			<td style="border-left: 0;">
+				<p class="form2data" style="margin-top:18px">kg</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6">
+				<p class="form2label">
+					19. Exporter's name and address (if other than vendor) <br>
+					Nom et adresse de l'exportateur (s'il diffère du vendeur)
+				</p>
+				<p class="form2data"><br></p>
+			</td>
+			<td colspan="6">
+				<p class="form2label">
+					20. Originator (name and address) - Expéditeur d'origine (nom et adresse)
+				</p>
+				<p class="form2data"></p>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="6">
+				<p class="form2label">21. CCRA ruling (if applicable) - Décision de l'Agence (s'il y a lieu)</p>
+				<p class="form2data"> </p>
+			</td>
+			<td colspan="6">
+				<table style="border: 0; width: 100%;">
+					<tr>
+						<td style="border:0; width: 60%;">
+							<p class="form2label">
+								22. If fields 23 to 25 are not applicable, check this box <br>
+								Si les zones 23 à 25 sont sans objet, cochez cette case
+							</p>
+						</td>
+						<td style="border:0; vertical-align: middle !important; text-align: center;">
+							<input type="checkbox">
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="width: 34%;">
+				<p class="form2label"> 23. If included in field 17 indicate amount:</p>
+				<p class="form2label" style="margin-left: 10px;"> Si compris dans le total à la zone 17, précisez :</p>
+				<p class="form2label" style="margin-left: 20px; margin-right: 2px;">
+					(i) Transportation charges, expenses and insurance from the
+					place of direct shipment to Canada <br>
+					Les frais de transport, dépenses et assurances à partir du point d'expédition directe
+					vers le Canada <br> <br>
+				</p>
+				<p class="form2data" style="vertical-align: bottom !important;">
+					<hr style="height: 1px; background-color: black;" class="MarBorPadZero">
+				</p>
+				<p class="form2label" style="margin-left: 20px; margin-right: 2px;">
+					(ii) Costs for construction, erection and assembly
+					incurred after importation into Canada <br>
+					Les coûts de construction, d'érection et
+					d'assemblage après importation au Canada  <br> <br>
+				</p>
+				<p class="form2data" style="vertical-align: bottom !important;">
+					<hr style="height: 1px; background-color: black;" class="MarBorPadZero">
+				</p>
+
+				<p class="form2label" style="margin-left: 20px; margin-right: 2px;">
+					(iii) Export packing <br>
+					Le coût de l'emballage d'exportation  <br> <br>
+				</p>
+
+				<p class="form2data" style="vertical-align: bottom !important;">
+					<hr style="height: 1px; background-color: black;" class="MarBorPadZero">
+				</p>
+			</td>
+			<td colspan="4" style="width: 33%;">
+				<p class="form2label">24. If not included in field 17 indicate amount:</p>
+				<p class="form2label" style="margin-left: 10px;">Si non compris dans le total à la zone 17, précisez :
+				</p>
+				<p class="form2label" style="margin-left: 20px; margin-right: 2px;">
+					(i) Transportation charges, expenses and insurance
+					to the place of direct shipment to Canada <br>
+					Les frais de transport, dépenses et assurances
+					jusqu'au point d'expédition directe vers le Canada  <br> <br>
+				</p>
+				<p class="form2data" style="vertical-align: bottom !important;">
+					<hr style="height: 1px; background-color: black;" class="MarBorPadZero">
+				</p>
+				<p class="form2label" style="margin-left: 20px; margin-right: 2px; ">
+					(ii) Amounts for commissions other than buying
+					commissions <br>
+					Les commissions autres que celles versées <br>
+					pour l'achat <br><br>  <br>
+				</p>
+				<p class="form2data" style="vertical-align: bottom !important;">
+					<hr style="height: 1px; background-color: black;" class="MarBorPadZero">
+				</p>
+
+				<p class="form2label" style="margin-left: 20px; margin-right: 2px;">
+					(iii) Export packing <br>
+					Le coût de l'emballage d'exportation <br><br>
+				</p>
+
+				<p class="form2data" style="vertical-align: bottom !important;">
+					<hr style="height: 1px; background-color: black;" class="MarBorPadZero">
+				</p>
+			</td>
+			<td colspan="4" style="width: 34%; text-align: center;">
+				<p class="form2label" style="text-align: left !important;"> 25. Check (if applicable):</p>
+				<p class="form2label" style="margin-left: 10px; text-align: left !important;">Cochez (s'il y a lieu) :</p>
+				<p class="form2label" style="margin-left: 20px; text-align: left !important; margin-right: 2px;">
+					(i) Royalty payments or subsequent proceeds are
+					paid or payable by the purchaser <br>
+					Des redevances ou produits ont été ou seront
+					versés par l'acheteur
+				</p>
+				<p style="margin: 10px;">
+					<input type="checkbox">
+				</p>
+				<p class="form2label" style="margin-left: 18px; margin-right: 2px; ">
+					(ii) The purchaser has supplied goods or services
+					for use in the production of these goods <br>
+					L'acheteur a fourni des marchandises ou des
+					services pour la production de ces
+					marchandises
+				</p>
+				<p style="margin: 10px;">
+					<input type="checkbox">
+				</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="12">
+				<p style="text-align: center; font-size: 8px;">Dans ce formulaire, toutes les expressions désignant des
+					personnes visent
+					à la fois les hommes et les
+					femmes.</p>
+			</td>
+		</tr>
+	</table>
+</div>
+{% endif %}

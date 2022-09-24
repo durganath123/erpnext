@@ -1,0 +1,47 @@
+{
+ "creation": "2016-09-01 14:28:39.174471",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "guardian",
+  "guardian_name",
+  "relation"
+ ],
+ "fields": [
+  {
+   "fieldname": "guardian",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Guardian",
+   "options": "Guardian",
+   "reqd": 1
+  },
+  {
+   "fieldname": "guardian_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Guardian Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "relation",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Relation",
+   "options": "\nMother\nFather\nOthers"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:56:17.919530",
+ "modified_by": "Administrator",
+ "module": "Education",
+ "name": "Student Guardian",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "restrict_to_domain": "Education",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,37 @@
+{
+ "creation": "2013-02-22 01:27:47",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "block_date",
+  "reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "block_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Block Date",
+   "print_width": "200px",
+   "reqd": 1,
+   "width": "200px"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Reason",
+   "print_width": "200px",
+   "reqd": 1,
+   "width": "200px"
+  }
+ ],
+ "idx": 1,
+ "istable": 1,
+ "modified": "2020-06-04 06:59:12.026915",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Leave Block List Date",
+ "owner": "Administrator",
+ "permissions": []
+}

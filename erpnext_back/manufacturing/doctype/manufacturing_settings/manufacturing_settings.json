@@ -1,0 +1,134 @@
+{
+ "creation": "2014-11-27 14:12:07.542534",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "capacity_planning",
+  "disable_capacity_planning",
+  "allow_overtime",
+  "allow_production_on_holidays",
+  "column_break_3",
+  "capacity_planning_for_days",
+  "mins_between_operations",
+  "section_break_6",
+  "overproduction_percentage_for_sales_order",
+  "overproduction_percentage_for_work_order",
+  "backflush_raw_materials_based_on",
+  "material_consumption",
+  "update_bom_costs_automatically",
+  "column_break_11",
+  "default_wip_warehouse",
+  "default_fg_warehouse"
+ ],
+ "fields": [
+  {
+   "fieldname": "capacity_planning",
+   "fieldtype": "Section Break",
+   "label": "Capacity Planning"
+  },
+  {
+   "description": "Disables creation of time logs against Work Orders. Operations shall not be tracked against Work Order",
+   "fieldname": "disable_capacity_planning",
+   "fieldtype": "Check",
+   "label": "Disable Capacity Planning and Time Tracking"
+  },
+  {
+   "description": "Plan time logs outside Workstation Working Hours.",
+   "fieldname": "allow_overtime",
+   "fieldtype": "Check",
+   "label": "Allow Overtime"
+  },
+  {
+   "fieldname": "allow_production_on_holidays",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Allow Production on Holidays"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "30",
+   "description": "Try planning operations for X days in advance.",
+   "fieldname": "capacity_planning_for_days",
+   "fieldtype": "Int",
+   "label": "Capacity Planning For (Days)"
+  },
+  {
+   "description": "Default 10 mins",
+   "fieldname": "mins_between_operations",
+   "fieldtype": "Int",
+   "label": "Time Between Operations (in mins)"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "overproduction_percentage_for_sales_order",
+   "fieldtype": "Percent",
+   "label": "Overproduction Percentage For Sales Order"
+  },
+  {
+   "fieldname": "overproduction_percentage_for_work_order",
+   "fieldtype": "Percent",
+   "label": "Overproduction Percentage For Work Order"
+  },
+  {
+   "default": "BOM",
+   "fieldname": "backflush_raw_materials_based_on",
+   "fieldtype": "Select",
+   "label": "Backflush Raw Materials Based On",
+   "options": "BOM\nMaterial Transferred for Manufacture"
+  },
+  {
+   "description": "Allow multiple Material Consumption against a Work Order",
+   "fieldname": "material_consumption",
+   "fieldtype": "Check",
+   "label": "Allow Multiple Material Consumption"
+  },
+  {
+   "description": "Update BOM cost automatically via Scheduler, based on latest valuation rate / price list rate / last purchase rate of raw materials.",
+   "fieldname": "update_bom_costs_automatically",
+   "fieldtype": "Check",
+   "label": "Update BOM Cost Automatically"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_wip_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Work In Progress Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "default_fg_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Finished Goods Warehouse",
+   "options": "Warehouse"
+  }
+ ],
+ "icon": "icon-wrench",
+ "issingle": 1,
+ "modified": "2020-06-04 06:58:29.354236",
+ "modified_by": "Administrator",
+ "module": "Manufacturing",
+ "name": "Manufacturing Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

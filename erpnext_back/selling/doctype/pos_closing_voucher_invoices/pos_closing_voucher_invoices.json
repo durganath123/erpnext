@@ -1,0 +1,46 @@
+{
+ "creation": "2018-05-29 14:50:08.687453",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "invoice",
+  "qty_of_items",
+  "grand_total"
+ ],
+ "fields": [
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Invoices",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qty_of_items",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Quantity of Items",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Grand Total",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:28.837016",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "POS Closing Voucher Invoices",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

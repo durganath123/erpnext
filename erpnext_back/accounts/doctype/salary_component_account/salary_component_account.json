@@ -1,0 +1,35 @@
+{
+ "creation": "2016-07-27 17:24:24.956896",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "company",
+  "default_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "description": "Default Bank / Cash account will be automatically updated in Salary Journal Entry when this mode is selected.",
+   "fieldname": "default_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Account",
+   "options": "Account"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:59:08.740945",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Salary Component Account",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

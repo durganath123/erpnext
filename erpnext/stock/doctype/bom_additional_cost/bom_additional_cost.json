@@ -1,0 +1,41 @@
+{
+ "creation": "2019-12-19 13:56:09.573815",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "col_break",
+  "amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "col_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount / Unit",
+   "options": "Company:company:default_currency"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:32:23.402557",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "BOM Additional Cost",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

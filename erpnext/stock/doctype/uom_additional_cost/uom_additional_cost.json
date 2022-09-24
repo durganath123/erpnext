@@ -1,0 +1,49 @@
+{
+ "autoname": "hash",
+ "creation": "2019-08-16 11:33:27.830562",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "uom",
+  "margin_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "oldfieldname": "uom",
+   "oldfieldtype": "Link",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "margin_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Additional Cost",
+   "oldfieldname": "conversion_factor",
+   "oldfieldtype": "Float",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:53:38.443647",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "UOM Additional Cost",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

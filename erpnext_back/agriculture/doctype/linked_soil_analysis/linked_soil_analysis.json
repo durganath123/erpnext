@@ -1,0 +1,31 @@
+{
+ "creation": "2017-11-22 15:00:37.259063",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "soil_analysis"
+ ],
+ "fields": [
+  {
+   "fieldname": "soil_analysis",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Soil Analysis",
+   "options": "Soil Analysis",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:56:23.035224",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Linked Soil Analysis",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "restrict_to_domain": "Agriculture",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

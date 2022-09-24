@@ -1,0 +1,111 @@
+{
+ "allow_rename": 1,
+ "autoname": "field:mapping_name",
+ "creation": "2018-02-08 09:28:44.678364",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "mapping_name",
+  "label",
+  "accounts",
+  "sb_1",
+  "is_finance_cost",
+  "is_working_capital",
+  "is_finance_cost_adjustment",
+  "is_income_tax_liability",
+  "is_income_tax_expense"
+ ],
+ "fields": [
+  {
+   "fieldname": "mapping_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Label",
+   "reqd": 1
+  },
+  {
+   "fieldname": "accounts",
+   "fieldtype": "Table",
+   "label": "Accounts",
+   "options": "Cash Flow Mapping Accounts",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb_1",
+   "fieldtype": "Section Break",
+   "label": "Select Maximum Of 1"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_finance_cost",
+   "fieldtype": "Check",
+   "label": "Is Finance Cost"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_working_capital",
+   "fieldtype": "Check",
+   "label": "Is Working Capital"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_finance_cost_adjustment",
+   "fieldtype": "Check",
+   "label": "Is Finance Cost Adjustment"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_income_tax_liability",
+   "fieldtype": "Check",
+   "label": "Is Income Tax Liability"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_income_tax_expense",
+   "fieldtype": "Check",
+   "label": "Is Income Tax Expense"
+  }
+ ],
+ "modified": "2020-06-04 06:58:42.374061",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Cash Flow Mapping",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "name",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,36 @@
+{
+ "creation": "2018-02-12 14:57:38.332692",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "email"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "fetch_from": "user.email",
+   "fieldname": "email",
+   "fieldtype": "Read Only",
+   "label": "email"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:32.048960",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Daily Work Summary Group User",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

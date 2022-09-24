@@ -1,0 +1,60 @@
+<style>
+.print-format {
+	padding: 4mm;
+	font-size: 8.0pt !important;
+}
+.print-format td {
+	vertical-align:middle !important;
+}
+</style>
+
+<h2 class="text-center" style="margin-top:0">{%= __("Bank Clearance Summary") %}</h2>
+<hr>
+<h6 class="text-left">
+	{% if (filters.from_date && !filters.clearance_date) { %}
+		From Date: {%= filters.from_date %}
+		<br>
+	{% } %}
+	{% if (filters.to_date && !filters.clearance_date) { %}
+		To Date: {%= filters.to_date %}
+		<br>
+	{% } %}
+	{% if (filters.clearance_date) { %}
+		Clearance Date: {%= frappe.format(filters.clearance_date, {fieldtype: "Date"}) %}
+	{% } %}
+	{% if (filters.account) { %}
+		Bank Account: {%= filters.account %}
+		<br>
+	{% } %}
+</h6>
+<hr>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th style="width: 10%">{%= __("Payment Entry") %}</th>
+			<th style="width: 10%">{%= __("Posting Date") %}</th>
+			<th style="width: 10%">{%= __("Cheque No") %}</th>
+			<th style="width: 10%">{%= __("Cheque Date") %}</th>
+			{% if (filters.from_date && filters.to_date  && !filters.clearance_date) { %}
+				<th style="width: 20%">{%= __("Clearance Date") %}</th>
+			{% } %}
+			<th style="width: 30%">{%= __("Against Account") %}</th>
+			<th style="width: 10%">{%= __("Amount") %}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for(var i=0; i<data.length; i++) { %}
+			<tr>
+                <td>{% if (data[i].is_total_row) { %}<b>Total</b>{% } else { %}{%= data[i]["payment_entry"] %}{% } %}</td>
+                <td>{%= frappe.format(data[i]["posting_date"], {fieldtype: "Date"}) %}</td>
+                <td>{%= data[i]["cheque_no"] %}</td>
+                <td>{%= frappe.format(data[i]["cheque_date"], {fieldtype: "Date"}) %}</td>
+                {% if (filters.from_date && filters.to_date && !filters.clearance_date) { %}
+                    <td>{%= data[i]["clearance_date"] %}</td>
+                {% } %}
+                <td>{%= data[i]["against_account"] %}</td>
+                <td>{%= frappe.format(data[i]["amount"], {fieldtype: "Currency"}) %}</td>
+			</tr>
+		{% } %}
+    </tbody>
+</table>

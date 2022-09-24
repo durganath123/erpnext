@@ -1,0 +1,11 @@
+{% extends 'frappe/templates/includes/navbar/navbar_items.html' %}
+
+{% block navbar_right_extension %}
+	<li class="shopping-cart cart-icon dropdown hidden">
+		<a href="/cart" class="nav-link text-primary dropdown-toggle" data-toggle="dropdown" id="shopping-cart-dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fa fa-shopping-cart"></i> {{ _("Order Checkout") }}
+			<span class="badge badge-primary" id="cart-count"></span>
+		</a>
+		<div id="cart-overlay" class="dropdown-menu dropdown-menu-right shopping-cart-menu" role="menu" aria-labelledby="shopping-cart-dropdown"></div>
+	</li>
+{% endblock %}

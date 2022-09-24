@@ -1,0 +1,22 @@
+<div class="web-list-item transaction-list-item">
+	<a href="/{{ pathname }}/{{ doc.name }}">
+		<div class="row">
+			<div class="col-sm-4" style='margin-top: -3px;'>
+				<span class="indicator {{ doc.indicator_color or ("blue" if doc.docstatus==1 else "darkgrey") }}" style="font-weight: bold !important;color: black !important;">
+				{{ doc.name }} ({{ doc.indicator_title }})</span>
+			</div>
+			<div class="col-sm-2">
+				{{ frappe.utils.global_date_format(doc.transaction_date or doc.posting_date) }}
+			</div>
+			<div class="col-sm-2">
+				{{ frappe.format_date(doc.delivery_date, "EEE, MMMM d, Y") }}
+			</div>
+			<div class="col-sm-2 text-right">
+				{{doc.get_formatted("total_qty")}}
+			</div>
+			<div class="col-sm-2 text-right bold">
+				{{ doc.get_formatted("grand_total") }}
+			</div>
+		</div>
+	</a>
+</div>

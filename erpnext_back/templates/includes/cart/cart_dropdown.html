@@ -1,0 +1,17 @@
+<div class="cart-dropdown-container">
+	<div class="checkout-btn"><a href="/cart" class="btn btn-block btn-primary">{{ _("Order Cart / Checkout") }}</a></div>
+	<div class="cart-error">{% include "templates/includes/cart/cart_errors.html" %}</div>
+	<div class="cart-warning">{% include "templates/includes/cart/cart_warnings.html" %}</div>
+	<div class="row cart-items-dropdown cart-item-header text-muted">
+		<div class="col-sm-6 h6 text-uppercase">{{ _("Item") }}</div>
+		<div class="col-sm-6 text-right h6 text-uppercase">{{ _("Price") }}</div>
+	</div>
+
+	{% if doc.items %}
+	<div class="cart-items-dropdown">
+		{% include "templates/includes/cart/cart_items_dropdown.html" %}
+	</div>
+	{% else %}
+	<p>{{ _("Order is Empty") }}</p>
+	{% endif %}
+</div>

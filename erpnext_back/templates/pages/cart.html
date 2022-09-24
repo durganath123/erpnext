@@ -1,0 +1,147 @@
+{% extends "templates/web.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block breadcrumbs %}
+	{% include "templates/includes/breadcrumbs.html" %}
+{% endblock %}
+
+{% block header %}
+<h2 style="margin-bottom: 0">{{ title }} <div class="cart-indicator">{% include "templates/includes/cart/cart_indicator.html" %}</div></h2>
+{% endblock %}
+
+{% block script %}
+<script>{% include "templates/includes/cart.js" %}</script>
+<script>{% include "templates/includes/product_list.js" %}</script>
+<script>{% include "templates/includes/zoom.js" %}</script>
+<script type="text/javascript" src="/assets/js/dialog.min.js"></script>
+<script type="text/javascript" src="/assets/js/control.min.js"></script>
+<script type="text/javascript" src="/assets/js/moment-bundle.min.js"></script>
+<script type="text/javascript" src="/assets/js/web-extended.min.js"></script>
+<script>
+$.extend(frappe, {
+	datepicker_format: 	"{{ frappe.date_format }}",
+	moment_date_format: "{{ frappe.date_format.upper() }}",
+	boot: {
+		user: {
+			can_read: '', can_write: '', can_create: ''
+		},
+		sysdefaults: {
+			float_precision: {{ frappe.get_system_settings('float_precision') or 3 }},
+			date_format: "{{ frappe.get_system_settings('date_format') or 'yyyy-mm-dd' }}",
+		},
+	}
+});
+frappe.sys_defaults = frappe.boot.sysdefaults;
+moment.defaultFormat = frappe.moment_date_format;
+</script>
+<script>
+shopping_cart.confirmed_by_customer = {{ doc.confirmed_by_customer|int }};
+</script>
+{% endblock %}
+
+{% block style %}
+<style>
+.cart-item-image {
+	width: 100% !important;
+	height: 50px !important;
+	padding: 0 !important;
+	background-size: contain !important;
+	cursor: pointer;
+}
+</style>
+<style>
+{% include "templates/includes/zoom.css" %}
+</style>
+{% endblock %}
+
+{% block header_actions %}
+<button class="btn btn-cancel-order btn-sm btn-outline-danger" type="button" style="display: none">
+	{{ _("Cancel Order") }}
+</button>
+<button class="btn btn-primary btn-place-order btn-sm" type="button" style="display: none">
+	{{ _("Place Order") }}
+</button>
+{% endblock %}
+
+{% block page_content %}
+
+{% from "templates/includes/macros.html" import item_name_and_description %}
+
+<div class="cart-container">
+	<div id="cart-fields">
+		{% for f in quotation_fields %}
+		<div class="cart-field-data hidden" data-fieldname="{{ f }}">{{ doc.get(f) or '' }}</div>
+		{% endfor %}
+		{% for p in party_fields %}
+		<div class="cart-field-data hidden" data-fieldname="{{ p }}">{{ party.get(p) or '' }}</div>
+		{% endfor %}
+		<div class="cart-field-data hidden" data-fieldname="customer_balance">{{ customer_balance }}</div>
+	</div>
+
+	<div class="cart-error">{% include "templates/includes/cart/cart_errors.html" %}</div>
+	<div class="cart-warning">{% include "templates/includes/cart/cart_warnings.html" %}</div>
+	{% if price_list_note %}<div class="alert alert-info">{{ price_list_note }}</div>{% endif %}
+
+	<div id="cart-body" {% if not doc.delivery_date %}class="hidden"{% endif %}>
+		<div class="cart-addresses">
+		{% include "templates/includes/cart/cart_address.html" %}
+		</div>
+
+		{% for dig in default_item_groups_allow %}
+		<button class="btn btn-default btn-get-default-items btn-outline-info btn-sm margin-top" data-item-group="{{ dig.get('name') }}" type="button">
+					Get Default {{ dig.get("name") }}</button>
+		{% endfor %}
+
+		<div class="table-responsive margin-top">
+			<table class="table table-bordered">
+				<thead>
+					<tr style="color: #8d99a6;font-size: 12px;background-color: #f7fafc;">
+						<th scope="col" style="width: 5% !important;"></th>
+						<th scope="col" class="text-center" style="width: 10% !important;">{{ _("Image") }}</th>
+						<th scope="col" class="" style="width: 35% !important;">{{ _("Item Name") }}</th>
+						<th scope="col" class="text-center" style="width: 5% !important;">{{ _("Country") }}</th>
+						<th scope="col" class="text-center" style="width: 10% !important;">{{ _("Quantity") }}</th>
+						<th scope="col" class="text-center" style="width: 15% !important;">{{ _("UOM") }}</th>
+						<th scope="col" class="text-right" style="width: 10% !important;">{{ _("Per Unit") }}</th>
+						<th scope="col" class="text-right" style="width: 10% !important;">{{ _("Rate") }}</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody class="cart-items" style="font-size: 12px !important;">
+					{% include "templates/includes/cart/cart_items.html" %}
+				</tbody>
+			</table>
+		</div>
+
+		<button class="btn btn-default btn-outline-primary btn-add-items btn-sm" type="button">{{ _("Add Item") }}</button>
+
+		<!-- taxes -->
+		<div class="row cart-taxes mt-3">
+			<div class="col-sm-12 text-right cart-tax-items">
+				{% include "templates/includes/order/order_taxes.html" %}
+			</div>
+		</div>
+
+		{% if doc.tc_name %}
+			<div class="cart-terms" style="display: none;" title={{doc.tc_name}}>
+				{{doc.tc_name}}
+				{{doc.terms}}
+			</div>
+			<div class="cart-link">
+				<a href="#" onclick="show_terms();return false;">*{{ __("Terms and Conditions") }}</a>
+			</div>
+		{% endif %}
+
+		<p class="cart-footer text-right">
+			<button class="btn btn-cancel-order btn-outline-danger btn-sm" type="button" style="display: none">
+				{{ _("Cancel Order") }}
+			</button>
+			<button class="btn btn-primary btn-place-order btn-sm" type="button" style="display: none">
+				{{ _("Place Order") }}
+			</button>
+		</p>
+	</div>
+</div>
+
+{% endblock %}

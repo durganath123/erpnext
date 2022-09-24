@@ -1,0 +1,38 @@
+{
+ "autoname": "hash",
+ "creation": "2013-02-22 01:27:38",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "month",
+  "percentage_allocation"
+ ],
+ "fields": [
+  {
+   "fieldname": "month",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Month",
+   "oldfieldname": "month",
+   "oldfieldtype": "Data",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "percentage_allocation",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Percentage Allocation",
+   "oldfieldname": "percentage_allocation",
+   "oldfieldtype": "Currency"
+  }
+ ],
+ "idx": 1,
+ "istable": 1,
+ "modified": "2020-06-04 06:59:11.886393",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Monthly Distribution Percentage",
+ "owner": "Administrator",
+ "permissions": []
+}

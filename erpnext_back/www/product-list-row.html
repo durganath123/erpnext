@@ -1,0 +1,35 @@
+{% from "erpnext/templates/includes/macros.html" import product_image_square %}
+
+<tr class="product-items-row" data-item-code="{{ item.item_code }}">
+    <td class="text-center">
+        <div class="product-page-image" data-item-image="{{ item.website_image or item.image or '' }}">
+            {{product_image_square(item.thumbnail or item.website_image or item.image, "product-item-image")}}
+        </div>
+    </td>
+    <td class="" style="vertical-align: middle;">
+        <a href="{{ item.route }}">{{item.item_name}}</a>
+    </td>
+    <td class="text-center" style="vertical-align: middle;">
+        {{ item.country_code or '' }}
+    </td>
+    <td style="vertical-align: middle;">
+        <input class="form-control text-center product-qty" value="{{ frappe.format(item.get('qty') or 0) }}"
+        data-item-code="{{ item.item_code }}">
+    </td>
+    <td style="vertical-align: middle;">
+        <select class="form-control small product-uom" data-item-code="{{ item.item_code }}" data-item-group="{{ item.item_group }}" style="cursor: pointer;">
+            {% for p in item.uoms %}
+                {% if p.show_in_website or p.uom == (item.selected_uom or item.sales_uom or item.stock_uom) %}
+                <option value="{{ p.uom }}" {% if p.uom == (item.selected_uom or item.sales_uom or item.stock_uom) %} selected="1"{% endif %}>{{ _(p.uom) }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </td>
+    <td class="text-right" style="vertical-align: middle;">
+        {{frappe.format(item.alt_uom_size)}}
+        <span class="text-muted small">{{item.alt_uom}}</span>
+    </td>
+    <td class="text-right" style="vertical-align: middle;">
+        {{ item.formatted_price or '' }}
+    </td>
+</tr>

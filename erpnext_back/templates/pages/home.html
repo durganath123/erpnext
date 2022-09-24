@@ -1,0 +1,56 @@
+{% extends "templates/web.html" %}
+{% from "erpnext/templates/includes/macros.html" import product_image_square %}
+
+{% block page_content %}
+<div class="slide-show">
+	{% include "templates/includes/slideshow.html" %}
+</div>
+<div class="row" style="margin-top: 30px;">
+	{% for item in sidebar_items %}
+	<div class="col-sm-3">
+		<a href="{{ item.route }}" style="color: inherit;">
+			<div class="card text-center mb-4">
+				<div class="card-body">
+					<h5 class="card-title"><i class="{{item.icon}}" aria-hidden="true" style="font-size: 50px;"></i></h5>
+				</div>
+				<div class="card-footer">{{ item.title }}</div>
+			</div>
+		</a>
+	</div>
+	{% endfor %}
+</div>
+<!-- <div class="row">
+	<div class="col-sm-12">
+		<div class="hero">
+			<h1 class="text-center">{{ homepage.tag_line or '' }}</h1>
+			<p class="text-center">{{ homepage.description or '' }}</p>
+		</div>
+		{% if homepage.products %}
+		<div class='featured-products-section' itemscope itemtype="http://schema.org/Product">
+			<h5 class='featured-product-heading'>{{ _("Featured Products") }}</h5>
+			<div class="featured-products">
+				<div id="search-list" class="row" style="margin-top:40px;">
+					{% for item in homepage.products %}
+					<a class="product-link" href="{{ item.route|abs_url }}">
+						<div class="col-sm-4 col-xs-4 product-image-wrapper">
+							<div class="product-image-img"> -->
+								<!-- thumbnail not updated, and used as background image in item card -->
+								<!-- {{ product_image_square(item.image) }}
+							<div class="product-text" itemprop="name">{{ item.item_name }}</div>
+							</div>
+						</div>
+					</a>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="text-center padding">
+				<a href="{{ homepage.products_url or "/products" }}" class="btn btn-primary all-products">
+					{{ _("View All Products") }}</a></div>
+		</div>
+		{% endif %}
+	</div>
+</div> -->
+{% endblock %}
+
+{% block style %}
+{% endblock %}

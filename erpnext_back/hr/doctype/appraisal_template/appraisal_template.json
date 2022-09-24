@@ -1,0 +1,67 @@
+{
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:kra_title",
+ "creation": "2012-07-03 13:30:39",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "field_order": [
+  "kra_title",
+  "description",
+  "goals"
+ ],
+ "fields": [
+  {
+   "fieldname": "kra_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Appraisal Template Title",
+   "oldfieldname": "kra_title",
+   "oldfieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description",
+   "oldfieldname": "description",
+   "oldfieldtype": "Small Text",
+   "print_width": "300px",
+   "width": "300px"
+  },
+  {
+   "fieldname": "goals",
+   "fieldtype": "Table",
+   "label": "Goals",
+   "oldfieldname": "kra_sheet",
+   "oldfieldtype": "Table",
+   "options": "Appraisal Template Goal",
+   "reqd": 1
+  }
+ ],
+ "icon": "icon-file-text",
+ "idx": 1,
+ "modified": "2020-06-04 06:59:06.649106",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Appraisal Template",
+ "owner": "ashwini@webnotestech.com",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Employee"
+  }
+ ],
+ "sort_order": "DESC"
+}

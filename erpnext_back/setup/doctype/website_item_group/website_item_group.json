@@ -1,0 +1,28 @@
+{
+ "creation": "2013-02-22 01:28:09",
+ "description": "Cross Listing of Item in multiple groups",
+ "doctype": "DocType",
+ "document_type": "Other",
+ "editable_grid": 1,
+ "field_order": [
+  "item_group"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Group",
+   "options": "Item Group",
+   "reqd": 1
+  }
+ ],
+ "idx": 1,
+ "istable": 1,
+ "modified": "2020-06-04 06:59:10.891432",
+ "modified_by": "Administrator",
+ "module": "Setup",
+ "name": "Website Item Group",
+ "owner": "Administrator",
+ "permissions": []
+}

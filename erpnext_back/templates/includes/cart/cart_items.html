@@ -1,0 +1,50 @@
+{% from "erpnext/templates/includes/order/order_macros.html" import item_name_and_description %}
+{% from "erpnext/templates/includes/order/order_macros.html" import item_name_and_description_cart %}
+{% from "erpnext/templates/includes/macros.html" import product_image_square %}
+
+{% if not doc.items %}
+<tr><td colspan="10" class="text-center">Order is Empty</td></tr>
+{% endif %}
+
+{% for d in doc.items %}
+<tr class="cart-items-row" data-item-code="{{d.item_code}}">
+    <td class="text-center" style="vertical-align: middle;">
+        {{d.idx}}
+    </td>
+    <td class="text-center">
+        <div class="cart-product-image" data-item-image="{{ d.website_image or d.image or '' }}">
+            {{product_image_square(d.thumbnail or d.website_image or d.image, "cart-item-image")}}
+        </div>
+    </td>
+    <td class="" style="vertical-align: middle;">
+        {{d.item_name}}
+    </td>
+    <td class="text-center" style="vertical-align: middle;">
+        {{ d.country_code or '' }} 
+    </td>
+    <td style="vertical-align: middle;">
+        <input class="form-control text-right cart-qty" value="{{ d.get_formatted('qty') }}"
+               data-item-code="{{ d.item_code }}" data-index="{{ d.idx }}">
+    </td>
+    <td style="vertical-align: middle;">
+        <select class="form-control small cart-uom" data-item-code="{{ d.item_code }}" style="cursor: pointer;">
+            {% set item = frappe.get_cached_doc("Item", d.item_code) %}
+            {% for p in item.uoms %}
+                {% if p.show_in_website or d.uom == p.uom %}
+                <option value="{{ p.uom }}" {% if d.uom == p.uom %} selected="1"{% endif %}>{{ _(p.uom) }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </td>
+    <td class="text-right" style="vertical-align: middle;">
+        {{d.get_formatted("alt_uom_size")}}
+        <span class="text-muted small">{{d.alt_uom}}</span>
+    </td>
+    <td class="text-right" style="vertical-align: middle;">
+        {{ d.get_formatted("rate") }}
+    </td>
+    <td style="vertical-align: middle;">
+        <i class="fa fa-close remove-cart-item" data-item-code="{{d.item_code}}" style="color:red;cursor: pointer;"></i>
+    </td>
+</tr>
+{% endfor %}

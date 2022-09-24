@@ -1,0 +1,43 @@
+{
+ "autoname": "hash",
+ "creation": "2013-02-22 01:27:44",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "kra",
+  "per_weightage"
+ ],
+ "fields": [
+  {
+   "description": "Key Performance Area",
+   "fieldname": "kra",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "KRA",
+   "oldfieldname": "kra",
+   "oldfieldtype": "Small Text",
+   "print_width": "200px",
+   "reqd": 1,
+   "width": "200px"
+  },
+  {
+   "fieldname": "per_weightage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weightage (%)",
+   "oldfieldname": "per_weightage",
+   "oldfieldtype": "Currency",
+   "print_width": "100px",
+   "reqd": 1,
+   "width": "100px"
+  }
+ ],
+ "idx": 1,
+ "istable": 1,
+ "modified": "2020-06-04 06:59:14.395663",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Appraisal Template Goal",
+ "owner": "ashwini@webnotestech.com",
+ "permissions": []
+}

@@ -1,0 +1,49 @@
+{
+ "creation": "2017-10-17 08:19:43.142329",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "class",
+  "description",
+  "issuing_date",
+  "expiry_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "class",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Class"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "issuing_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Issuing Date"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-06-04 06:58:53.312337",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Driving License Category",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,69 @@
+{% extends "templates/web.html" %}
+
+{% from "erpnext/templates/includes/order/order_macros.html" import item_name_and_description %}
+
+{% block breadcrumbs %}
+	{% include "templates/includes/breadcrumbs.html" %}
+{% endblock %}
+
+{% block header %}<h2>{{ title }}</h2>{% endblock %}
+
+{% block script%}
+<script>{% include "templates/includes/zoom.js" %}</script>
+<script>{% include "templates/includes/product_list.js" %}</script>
+<script>{% include "erpnext/www/product_list.js" %}</script>
+<script type="text/javascript" src="/assets/js/dialog.min.js"></script>
+<script type="text/javascript" src="/assets/js/control.min.js"></script>
+<script type="text/javascript" src="/assets/js/moment-bundle.min.js"></script>
+<script type="text/javascript" src="/assets/js/web-extended.min.js"></script>
+<script>
+$.extend(frappe, {
+	datepicker_format: 	"{{ frappe.date_format }}",
+	moment_date_format: "{{ frappe.date_format.upper() }}",
+	boot: {
+		user: {
+			can_read: '', can_write: '', can_create: ''
+		},
+		sysdefaults: {
+			float_precision: {{ frappe.get_system_settings('float_precision') or 3 }},
+			date_format: "{{ frappe.get_system_settings('date_format') or 'yyyy-mm-dd' }}",
+		},
+	}
+});
+frappe.sys_defaults = frappe.boot.sysdefaults;
+moment.defaultFormat = frappe.moment_date_format;
+</script>
+{% endblock %}
+
+{% block style %}
+<style>
+.product-item-image{
+	width: 100% !important;
+	height: 50px !important;
+	padding: 0 !important;
+	background-size: contain !important;
+    cursor: pointer;
+}
+</style>
+<style>
+{% include "templates/includes/zoom.css" %}
+</style>
+{% endblock %}
+
+{% block header_actions %}
+
+{% endblock %}
+
+{% block page_content %}
+<div id="product-field">
+    <div class="product-field-data hidden" data-fieldname="delivery_date">{{ delivery_date }}</div>
+</div>
+
+<div class="cart-error">{% include "templates/includes/cart/cart_errors.html" %}</div>
+<div class="cart-warning">{% include "templates/includes/cart/cart_warnings.html" %}</div>
+{% if price_list_note %}<div class="alert alert-info">{{ price_list_note }}</div>{% endif %}
+
+<div class="products-wrapper">
+{% if delivery_date %}{% include 'erpnext/www/product-list-table.html' %}{% endif %}
+</div>
+{% endblock %}

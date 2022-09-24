@@ -1,0 +1,43 @@
+{
+ "autoname": "field:mapping",
+ "creation": "2018-02-08 10:18:48.513608",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "mapping"
+ ],
+ "fields": [
+  {
+   "fieldname": "mapping",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Mapping",
+   "options": "Cash Flow Mapping",
+   "reqd": 1
+  }
+ ],
+ "modified": "2020-06-04 06:58:43.656844",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Cash Flow Mapping Template Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
